@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "ccastroadds",
+  "version": "${version}",
+
+  "name": "Astro Adds to Chest Cavity",
+  "description": "This is an example description! Tell everyone what your mod is about!",
+  "authors": [
+    "A5TR0spud"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+
+  "license": "MIT",
+  "icon": "assets/ccastroadds/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.astrospud.ccastroadds.CCAstroAdds"
+    ]
+  },
+  "mixins": [
+    "ccastroadds.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.6",
+    "fabric": "*",
+    "minecraft": "~1.19",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
