@@ -7,13 +7,13 @@
   ],
   "key": {
     "E": {
-      "item": "minecraft:echo_shard"
+      "item": "minecraft:iron_ingot"
     },
     "H": {
-      "item": "chestcavity:heart"
+      "item": "chestcavity:lung"
     }
   },
   "result": {
-    "item": "ccastroadds:abyssal_heart"
+    "item": "ccastroadds:iron_lung"
   }
 }

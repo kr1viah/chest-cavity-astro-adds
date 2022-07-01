@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "P",
+    "C",
+    "#"
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:diamond"
+    },
+    "C": {
+      "item": "minecraft:gold_ingot"
+    },
+    "#": {
+      "tag": "minecraft:stone_crafting_materials"
+    }
+  },
+  "result": {
+    "item": "ccastroadds:gem_holster"
+  }
+}

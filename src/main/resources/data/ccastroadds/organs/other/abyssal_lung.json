@@ -1,0 +1,10 @@
+{
+  "itemID": "ccastroadds:abyssal_lung",
+  "organScores": [
+    {"id":"chestcavity:breath_recovery","value": "1"},
+    {"id":"chestcavity:breath_capacity","value": "1"},
+    {"id":"chestcavity:endurance","value": "1"},
+    {"id":"chestcavity:health","value": "0.5"},
+    {"id":"chestcavity:metabolism","value": "-0.5"}
+  ]
+}

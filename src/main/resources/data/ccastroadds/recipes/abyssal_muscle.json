@@ -1,19 +1,20 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " E ",
+    "EEE",
     "EHE",
-    " E "
+    "EEE"
   ],
   "key": {
-    "E": {
+    "H": {
       "item": "minecraft:echo_shard"
     },
-    "H": {
-      "item": "chestcavity:heart"
+    "E": {
+      "item": "chestcavity:muscle"
     }
   },
   "result": {
-    "item": "ccastroadds:abyssal_heart"
+    "item": "ccastroadds:abyssal_muscle",
+    "count": 8
   }
 }

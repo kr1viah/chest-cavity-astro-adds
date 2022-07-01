@@ -1,0 +1,8 @@
+{
+  "itemID": "ccastroadds:steel_actuator",
+  "organScores": [
+    {"id":"chestcavity:speed","value": "0.25"},
+    {"id":"chestcavity:strength","value": "1.25"},
+    {"id":"chestcavity:defense","value": "0.25"}
+  ]
+}

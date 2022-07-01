@@ -1,0 +1,9 @@
+{
+"itemID": "ccastroadds:phantom_pump",
+  "organScores": [
+    {"id":"chestcavity:buoyant","value": "0.5"},
+    {"id":"chestcavity:breath_recovery","value": "0.75"},
+    {"id":"chestcavity:breath_capacity","value": "0.75"},
+    {"id":"chestcavity:endurance","value": "0.75"}
+  ]
+}

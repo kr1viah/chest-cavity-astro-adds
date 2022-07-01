@@ -1,0 +1,7 @@
+{
+  "itemID": "ccastroadds:steel_frame",
+  "organScores": [
+    {"id":"chestcavity:defense","value": "1.25"},
+    {"id":"chestcavity:metabolism","value": "-0.25"}
+  ]
+}

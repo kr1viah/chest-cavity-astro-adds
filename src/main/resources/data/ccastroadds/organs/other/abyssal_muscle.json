@@ -1,0 +1,9 @@
+{
+  "itemID": "ccastroadds:abyssal_muscle",
+  "organScores": [
+    {"id":"chestcavity:speed","value": "1"},
+    {"id":"chestcavity:strength","value": "1"},
+    {"id":"chestcavity:defense","value": "0.25"},
+    {"id":"chestcavity:metabolism","value": "-0.25"}
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "itemID": "ccastroadds:golden_wiring",
+  "organScores": [
+    {"id":"chestcavity:nerves","value": "1.5"},
+    {"id": "chestcavity:knockback_resistant", "value": "0.5"}
+  ]
+}

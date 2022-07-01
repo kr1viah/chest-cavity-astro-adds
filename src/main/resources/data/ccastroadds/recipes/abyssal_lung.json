@@ -10,10 +10,10 @@
       "item": "minecraft:echo_shard"
     },
     "H": {
-      "item": "chestcavity:heart"
+      "item": "chestcavity:lung"
     }
   },
   "result": {
-    "item": "ccastroadds:abyssal_heart"
+    "item": "ccastroadds:abyssal_lung"
   }
 }

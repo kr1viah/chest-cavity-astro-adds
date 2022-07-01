@@ -1,0 +1,7 @@
+{
+  "itemID": "ccastroadds:actuator",
+  "organScores": [
+    {"id":"chestcavity:speed","value": "1.5"},
+    {"id":"chestcavity:strength","value": "0.5"}
+  ]
+}

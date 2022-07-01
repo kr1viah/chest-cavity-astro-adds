@@ -1,0 +1,7 @@
+{
+"itemID": "ccastroadds:blood_pump",
+  "organScores": [
+    {"id":"chestcavity:health","value": "0.5"},
+    {"id":"chestcavity:metabolism","value": "0.5"}
+  ]
+}
