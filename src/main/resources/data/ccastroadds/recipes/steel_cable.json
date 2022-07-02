@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ccastroadds:copper_wiring"
+    },
+    {
+      "item": "ccastroadds:copper_wiring"
+    },
+    {
+      "item": "ccastroadds:copper_wiring"
+    },
+    {
+      "item": "minecraft:redstone"
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    }
+  ],
+  "result": {
+    "item": "ccastroadds:steel_cable",
+    "count": 2
+  }
+}

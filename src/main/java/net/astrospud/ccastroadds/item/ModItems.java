@@ -43,10 +43,14 @@ public class ModItems {
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
     public static final Item GEM_HOLSTER = registerItem("gem_holster",
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
+    public static final Item ACID_MIXER = registerItem("acid_mixer",
+            new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
 
     //iron set
     public static final Item STEEL_ACTUATOR = registerItem("steel_actuator",
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(16)));
+    public static final Item STEEL_CABLE = registerItem("steel_cable",
+            new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(4)));
     public static final Item STEEL_FRAME = registerItem("steel_frame",
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(4)));
     public static final Item STEEL_DETOXIFIER = registerItem("steel_detoxifier",

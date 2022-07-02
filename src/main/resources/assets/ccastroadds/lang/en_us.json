@@ -14,8 +14,10 @@
   "item.ccastroadds.jump_shaft" : "Jump Shaft",
   "item.ccastroadds.golden_wiring" : "Golden Wiring",
   "item.ccastroadds.clockwork_core" : "Clockwork Core",
+  "item.ccastroadds.acid_mixer" : "Acid Mixer",
 
   "item.ccastroadds.steel_actuator" : "Steel Actuator",
+  "item.ccastroadds.steel_cable" : "Steel Cable",
   "item.ccastroadds.steel_frame" : "Steel Frame",
   "item.ccastroadds.steel_detoxifier" : "Steel Detoxifier",
   "item.ccastroadds.steel_core" : "Steel Core",

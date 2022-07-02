@@ -1,0 +1,7 @@
+{
+"itemID": "ccastroadds:acid_mixer",
+  "organScores": [
+    {"id":"chestcavity:digestion","value": "0.25"},
+    {"id":"chestcavity:nutrition","value": "0.75"}
+  ]
+}
