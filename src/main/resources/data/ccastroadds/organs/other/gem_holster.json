@@ -1,6 +1,8 @@
 {
 "itemID": "ccastroadds:gem_holster",
   "organScores": [
-    {"id":"chestcavity:luck","value": "1"}
+    {"id":"chestcavity:luck","value": "1.25"},
+    {"id":"chestcavity:buoyant","value": "-0.25"},
+    {"id":"chestcavity:speed","value": "-0.25"}
   ]
 }
