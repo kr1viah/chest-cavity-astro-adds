@@ -1,0 +1,9 @@
+{
+  "itemID": "ccastroadds:heart_of_gold",
+  "organScores": [
+    {"id":"chestcavity:health","value": "0.5"},
+    {"id":"chestcavity:luck","value": "0.5"},
+    {"id":"chestcavity:defense","value": "0.5"},
+    {"id":"chestcavity:strength","value": "-1"}
+  ]
+}

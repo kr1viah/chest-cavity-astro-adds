@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "I I",
+    "IXI",
+    " I "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "X": {
+      "item": "ccastroadds:blood_pump"
+    }
+  },
+  "result": {
+    "item": "ccastroadds:steel_core"
+  }
+}

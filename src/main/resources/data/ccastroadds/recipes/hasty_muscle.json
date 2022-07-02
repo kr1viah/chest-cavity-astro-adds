@@ -14,7 +14,7 @@
       "item": "chestcavity:muscle"
     },
     {
-      "item": "minecraft:echo_shard"
+      "item": "minecraft:gold_ingot"
     },
     {
       "item": "chestcavity:muscle"
@@ -30,6 +30,6 @@
     }
   ],
   "result": {
-    "item": "ccastroadds:abyssal_muscle"
+    "item": "ccastroadds:hasty_muscle"
   }
 }

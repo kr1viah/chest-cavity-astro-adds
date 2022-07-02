@@ -17,5 +17,13 @@
 
   "item.ccastroadds.steel_actuator" : "Steel Actuator",
   "item.ccastroadds.steel_frame" : "Steel Frame",
-  "item.ccastroadds.iron_lung" : "Iron Lung"
+  "item.ccastroadds.steel_detoxifier" : "Steel Detoxifier",
+  "item.ccastroadds.steel_core" : "Steel Core",
+
+  "item.ccastroadds.captured_soul" : "Captured Soul",
+  "item.ccastroadds.creative_soul" : "Creative Soul",
+
+  "item.ccastroadds.iron_lung" : "Iron Lung",
+  "item.ccastroadds.heart_of_gold" : "Heart of Gold",
+  "item.ccastroadds.hasty_muscle" : "Hasty Muscle"
 }
