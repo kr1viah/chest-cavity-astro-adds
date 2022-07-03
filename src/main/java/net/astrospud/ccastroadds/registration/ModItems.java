@@ -1,9 +1,8 @@
-package net.astrospud.ccastroadds.item;
+package net.astrospud.ccastroadds.registration;
 
 import net.astrospud.ccastroadds.CCAstroAdds;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.tigereye.chestcavity.ChestCavity;
@@ -70,6 +69,9 @@ public class ModItems {
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
     public static final Item HASTY_MUSCLE = registerItem("hasty_muscle",
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(16)));
+
+    public static final Item SWIM_BLADDER = registerItem("swim_bladder",
+            new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registry.ITEM, new Identifier(CCAstroAdds.MOD_ID, name), item);

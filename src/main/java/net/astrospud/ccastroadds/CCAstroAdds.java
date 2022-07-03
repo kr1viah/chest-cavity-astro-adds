@@ -1,7 +1,9 @@
 package net.astrospud.ccastroadds;
 
-import net.astrospud.ccastroadds.item.ModItems;
+import net.astrospud.ccastroadds.listeners.OrganTickListeners;
+import net.astrospud.ccastroadds.registration.ModItems;
 import net.fabricmc.api.ModInitializer;
+import net.tigereye.chestcavity.ChestCavity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,5 +22,6 @@ public class CCAstroAdds implements ModInitializer {
 		// Proceed with mild caution.
 
 		ModItems.registerModItems();
+		OrganTickListeners.register();
 	}
 }

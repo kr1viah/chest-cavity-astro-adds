@@ -1,8 +1,9 @@
 {
   "itemID": "ccastroadds:abyssal_heart",
   "organScores": [
-    {"id":"chestcavity:health","value": "1"},
-    {"id":"chestcavity:defense","value": "1"},
-    {"id":"chestcavity:metabolism","value": "-1"}
+    {"id":"chestcavity:health","value": "0.75"},
+    {"id":"chestcavity:defense","value": "0.75"},
+    {"id":"chestcavity:metabolism","value": "-1"},
+    {"id":"ccastroadds:panic","value": "1"}
   ]
 }

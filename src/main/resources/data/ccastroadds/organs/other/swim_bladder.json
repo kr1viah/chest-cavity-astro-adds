@@ -1,0 +1,7 @@
+{
+  "itemID": "ccastroadds:swim_bladder",
+  "organScores": [
+    {"id":"ccastroadds:neutral_water_buoyant","value": "1"},
+    {"id":"chestcavity:swim_speed","value": "1"}
+  ]
+}

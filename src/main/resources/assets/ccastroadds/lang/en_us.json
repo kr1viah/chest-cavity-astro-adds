@@ -27,5 +27,10 @@
 
   "item.ccastroadds.iron_lung" : "Iron Lung",
   "item.ccastroadds.heart_of_gold" : "Heart of Gold",
-  "item.ccastroadds.hasty_muscle" : "Hasty Muscle"
+  "item.ccastroadds.hasty_muscle" : "Hasty Muscle",
+
+  "item.ccastroadds.swim_bladder" : "Swim Bladder",
+
+  "organscore.ccastroadds.neutral_water_buoyant": "Neutrally Fluid Buoyant",
+  "organscore.ccastroadds.panic": "Panic"
 }
