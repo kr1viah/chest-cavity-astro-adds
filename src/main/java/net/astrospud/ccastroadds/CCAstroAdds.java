@@ -1,13 +1,9 @@
 package net.astrospud.ccastroadds;
 
-import net.astrospud.ccastroadds.listeners.OrganTickListeners;
+import net.astrospud.ccastroadds.listeners.CCAAOrganTickListeners;
 import net.astrospud.ccastroadds.registration.CCAAStatusEffects;
 import net.astrospud.ccastroadds.registration.ModItems;
-import net.astrospud.ccastroadds.specials.AmethystExplosion;
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.entity.Entity;
-import net.minecraft.world.World;
-import net.tigereye.chestcavity.ChestCavity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,7 +29,7 @@ public class CCAstroAdds implements ModInitializer {
 		// Proceed with mild caution.
 
 		ModItems.registerModItems();
-		OrganTickListeners.register();
+		CCAAOrganTickListeners.register();
 		CCAAStatusEffects.register();
 
 	}

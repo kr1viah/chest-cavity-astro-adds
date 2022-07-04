@@ -34,5 +34,7 @@
   "organscore.ccastroadds.neutral_water_buoyant": "Neutrally Fluid Buoyant",
   "organscore.ccastroadds.panic": "%sPanicking",
   "organscore.ccastroadds.resonance": "Resonant",
-  "effect.ccastroadds.resonance_cooldown": "Resonance Cooldown"
+
+  "effect.ccastroadds.resonance_cooldown": "Resonance Cooldown",
+  "effect.ccastroadds.panic": "Panic!"
 }
