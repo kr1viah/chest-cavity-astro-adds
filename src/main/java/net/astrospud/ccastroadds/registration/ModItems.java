@@ -62,16 +62,20 @@ public class ModItems {
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
     public static final Item CREATIVE_SOUL = registerItem("creative_soul",
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
-
     public static final Item IRON_LUNG = registerItem("iron_lung",
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
     public static final Item HEART_OF_GOLD = registerItem("heart_of_gold",
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
     public static final Item HASTY_MUSCLE = registerItem("hasty_muscle",
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(16)));
-
     public static final Item SWIM_BLADDER = registerItem("swim_bladder",
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
+    public static final Item RESONANT_CORE = registerItem("resonant_core",
+            new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
+    public static final Item ADRENAL_CATALYST = registerItem("adrenal_catalyst",
+            new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
+
+
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registry.ITEM, new Identifier(CCAstroAdds.MOD_ID, name), item);

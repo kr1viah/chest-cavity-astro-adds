@@ -1,8 +1,12 @@
 package net.astrospud.ccastroadds;
 
 import net.astrospud.ccastroadds.listeners.OrganTickListeners;
+import net.astrospud.ccastroadds.registration.CCAAStatusEffects;
 import net.astrospud.ccastroadds.registration.ModItems;
+import net.astrospud.ccastroadds.specials.AmethystExplosion;
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.entity.Entity;
+import net.minecraft.world.World;
 import net.tigereye.chestcavity.ChestCavity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +19,13 @@ public class CCAstroAdds implements ModInitializer {
 	public static final String MOD_ID = "ccastroadds";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
+	//public AmethystExplosion createAmethystExplosion(World world, Entity entity, double x, double y, double z, float power) {
+	//	AmethystExplosion explosion = new AmethystExplosion(world, entity, x, y, z, power);
+	//	explosion.collectBlocksAndDamageEntities();
+	//	explosion.affectWorld(true);
+	//	return explosion;
+	//}
+
 	@Override
 	public void onInitialize() {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
@@ -23,5 +34,7 @@ public class CCAstroAdds implements ModInitializer {
 
 		ModItems.registerModItems();
 		OrganTickListeners.register();
+		CCAAStatusEffects.register();
+
 	}
 }

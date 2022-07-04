@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " E ",
+    "EHE",
+    " E "
+  ],
+  "key": {
+    "E": {
+      "item": "minecraft:echo_shard"
+    },
+    "H": {
+      "item": "ccastroadds:resonant_core"
+    }
+  },
+  "result": {
+    "item": "ccastroadds:adrenal_catalyst"
+  }
+}

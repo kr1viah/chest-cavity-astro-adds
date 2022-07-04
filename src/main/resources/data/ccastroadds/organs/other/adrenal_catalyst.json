@@ -1,0 +1,7 @@
+{
+  "itemID": "ccastroadds:adrenal_catalyst",
+  "organScores": [
+    {"id":"ccastroadds:resonance","value": "1"},
+    {"id":"ccastroadds:panic","value": "1"}
+  ]
+}
