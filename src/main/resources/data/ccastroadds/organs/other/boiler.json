@@ -1,0 +1,16 @@
+{
+"itemID": "ccastroadds:boiler",
+  "organScores": [
+    {"id":"chestcavity:digestion","value": "0.25"},
+    {"id":"chestcavity:digestion","value": "0.25"},
+    {"id":"chestcavity:digestion","value": "0.25"},
+    {"id":"chestcavity:digestion","value": "0.25"},
+    {"id":"chestcavity:digestion","value": "0.25"},
+    {"id":"chestcavity:digestion","value": "0.25"},
+    {"id":"chestcavity:digestion","value": "0.25"},
+    {"id":"chestcavity:digestion","value": "0.25"},
+    {"id":"chestcavity:digestion","value": "0.25"},
+    {"id":"chestcavity:digestion","value": "0.25"},
+    {"id":"chestcavity:digestion","value": "0.25"}
+  ]
+}

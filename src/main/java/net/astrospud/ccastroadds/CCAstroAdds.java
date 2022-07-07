@@ -3,7 +3,7 @@ package net.astrospud.ccastroadds;
 import net.astrospud.ccastroadds.listeners.CCAAOrganOnHitListeners;
 import net.astrospud.ccastroadds.listeners.CCAAOrganTickListeners;
 import net.astrospud.ccastroadds.registration.CCAAStatusEffects;
-import net.astrospud.ccastroadds.registration.ModItems;
+import net.astrospud.ccastroadds.registration.CCAAItems;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,7 +29,7 @@ public class CCAstroAdds implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 
-		ModItems.registerModItems();
+		CCAAItems.registerModItems();
 		CCAAOrganTickListeners.register();
 		CCAAOrganOnHitListeners.register();
 		CCAAStatusEffects.register();

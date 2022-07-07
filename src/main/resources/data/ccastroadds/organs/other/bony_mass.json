@@ -1,0 +1,7 @@
+{
+"itemID": "ccastroadds:bony_mass",
+  "organScores": [
+    {"id":"chestcavity:health","value": "-0.25"},
+    {"id":"chestcavity:defense","value": "0.25"}
+  ]
+}

@@ -1,13 +1,14 @@
 package net.astrospud.ccastroadds.registration;
 
 import net.astrospud.ccastroadds.CCAstroAdds;
+import net.astrospud.ccastroadds.specials.TumorItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.tigereye.chestcavity.ChestCavity;
 
-public class ModItems {
+public class CCAAItems {
 
     // new Item(new Item.Settings().maxCount(1).group(ChestCavity.ORGAN_ITEM_GROUP));
 
@@ -56,6 +57,8 @@ public class ModItems {
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
     public static final Item STEEL_CORE = registerItem("steel_core",
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
+    public static final Item BOILER = registerItem("boiler",
+            new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
 
     //utility
     public static final Item CAPTURED_SOUL = registerItem("captured_soul",
@@ -74,7 +77,9 @@ public class ModItems {
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
     public static final Item ADRENAL_CATALYST = registerItem("adrenal_catalyst",
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
-
+    public static final Item TUMOR = registerItem("tumor",
+            new TumorItem(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
+    //I have zero idea how to make tumor work, so I've removed its recipe
 
 
     private static Item registerItem(String name, Item item) {

@@ -1,0 +1,7 @@
+{
+"itemID": "ccastroadds:writhing_mass",
+  "organScores": [
+    {"id":"chestcavity:health","value": "-0.25"},
+    {"id":"ccastroadds:panic","value": "0.5"}
+  ]
+}

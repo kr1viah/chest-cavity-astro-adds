@@ -21,6 +21,7 @@
   "item.ccastroadds.steel_frame" : "Steel Frame",
   "item.ccastroadds.steel_detoxifier" : "Steel Detoxifier",
   "item.ccastroadds.steel_core" : "Steel Core",
+  "item.ccastroadds.boiler" : "Boiler",
 
   "item.ccastroadds.captured_soul" : "Captured Soul",
   "item.ccastroadds.creative_soul" : "Creative Soul",
@@ -30,6 +31,11 @@
   "item.ccastroadds.swim_bladder" : "Swim Bladder",
   "item.ccastroadds.resonant_core" : "Resonant Core",
   "item.ccastroadds.adrenal_catalyst" : "Adrenal Catalyst",
+  "item.ccastroadds.tumor" : "Tumor",
+  "item.ccastroadds.writhing_mass" : "Writhing Mass",
+  "item.ccastroadds.bony_mass" : "Bony Mass",
+  "tooltip.ccastroadds.tumor" : "tumor desc",
+  "tooltip.ccastroadds.tumor.craft" : "Crafted!",
 
   "organscore.ccastroadds.neutral_water_buoyant": "Neutrally Fluid Buoyant",
   "organscore.ccastroadds.panic": "%sPanicking",
