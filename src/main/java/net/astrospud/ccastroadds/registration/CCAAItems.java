@@ -45,6 +45,8 @@ public class CCAAItems {
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
     public static final Item ACID_MIXER = registerItem("acid_mixer",
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
+    public static final Item ELECTROLYZER = registerItem("electrolyzer",
+            new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
 
     //iron set
     public static final Item STEEL_ACTUATOR = registerItem("steel_actuator",
@@ -55,9 +57,17 @@ public class CCAAItems {
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(4)));
     public static final Item STEEL_DETOXIFIER = registerItem("steel_detoxifier",
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
-    public static final Item STEEL_CORE = registerItem("steel_core",
+    public static final Item STEEL_DISTRIBUTOR = registerItem("steel_distributor",
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
     public static final Item BOILER = registerItem("boiler",
+            new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
+    public static final Item NUTRIENT_MIXER = registerItem("nutrient_mixer",
+            new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
+
+    //computer parts
+    public static final Item CIRCUITRY = registerItem("circuitry",
+            new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
+    public static final Item SUPER_CAPACITOR = registerItem("super_capacitor",
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
 
     //utility
@@ -77,10 +87,11 @@ public class CCAAItems {
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
     public static final Item ADRENAL_CATALYST = registerItem("adrenal_catalyst",
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
+    public static final Item ADRENAL_SHRIEKER = registerItem("adrenal_shrieker",
+            new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
     public static final Item TUMOR = registerItem("tumor",
             new TumorItem(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
-    //I have zero idea how to make tumor work, so I've removed its recipe
-
+    //I have zero idea how to make tumor work, so I've removed its recipe and all child recipes
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registry.ITEM, new Identifier(CCAstroAdds.MOD_ID, name), item);

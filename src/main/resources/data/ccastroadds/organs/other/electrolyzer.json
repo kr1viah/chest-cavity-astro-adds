@@ -1,0 +1,7 @@
+{
+"itemID": "ccastroadds:electrolyzer",
+  "organScores": [
+    {"id":"chestcavity:water_breath","value": "1"},
+    {"id":"chestcavity:breath_capacity","value": "1"}
+  ]
+}

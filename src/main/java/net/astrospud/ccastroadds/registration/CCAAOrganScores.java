@@ -9,4 +9,5 @@ public class CCAAOrganScores extends CCOrganScores {
     public static final Identifier NEUTRAL_WATER_BUOYANT = new Identifier(CCAstroAdds.MOD_ID, "neutral_water_buoyant");
     public static final Identifier PANIC = new Identifier(CCAstroAdds.MOD_ID, "panic");
     public static final Identifier RESONANCE = new Identifier(CCAstroAdds.MOD_ID, "resonance");
+    public static final Identifier SHRIEKING = new Identifier(CCAstroAdds.MOD_ID, "shrieking");
 }

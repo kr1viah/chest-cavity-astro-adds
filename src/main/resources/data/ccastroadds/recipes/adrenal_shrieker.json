@@ -1,8 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "BEB",
-    "EHE"
+    "B B",
+    "EHE",
+    " E "
   ],
   "key": {
     "E": {
@@ -16,6 +17,6 @@
     }
   },
   "result": {
-    "item": "ccastroadds:adrenal_catalyst"
+    "item": "ccastroadds:adrenal_shrieker"
   }
 }

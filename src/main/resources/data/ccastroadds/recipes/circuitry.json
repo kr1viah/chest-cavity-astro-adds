@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GIG",
+    "bQb",
+    "GIG"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "I": {
+      "tag": "minecraft:planks"
+    },
+    "Q": {
+      "item": "minecraft:comparator"
+    },
+    "b": {
+      "item": "ccastroadds:golden_wiring"
+    }
+  },
+  "result": {
+    "item": "ccastroadds:circuitry"
+  }
+}

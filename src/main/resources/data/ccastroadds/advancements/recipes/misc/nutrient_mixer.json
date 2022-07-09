@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ccastroadds:steel_core"
+        "recipe": "ccastroadds:nutrient_mixer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "ccastroadds:steel_core"
+      "ccastroadds:nutrient_mixer"
     ]
   }
 }

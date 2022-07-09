@@ -15,13 +15,18 @@
   "item.ccastroadds.golden_wiring" : "Golden Wiring",
   "item.ccastroadds.clockwork_core" : "Clockwork Core",
   "item.ccastroadds.acid_mixer" : "Acid Mixer",
+  "item.ccastroadds.electrolyzer" : "Electrolyzer",
 
   "item.ccastroadds.steel_actuator" : "Steel Actuator",
   "item.ccastroadds.steel_cable" : "Steel Cable",
   "item.ccastroadds.steel_frame" : "Steel Frame",
   "item.ccastroadds.steel_detoxifier" : "Steel Detoxifier",
-  "item.ccastroadds.steel_core" : "Steel Core",
+  "item.ccastroadds.steel_distributor" : "Steel Distributor",
   "item.ccastroadds.boiler" : "Boiler",
+  "item.ccastroadds.nutrient_mixer" : "Nutrient Mixer",
+
+  "item.ccastroadds.circuitry" : "Circuitry",
+  "item.ccastroadds.super_capacitor" : "Super Capacitor",
 
   "item.ccastroadds.captured_soul" : "Captured Soul",
   "item.ccastroadds.creative_soul" : "Creative Soul",
@@ -31,6 +36,7 @@
   "item.ccastroadds.swim_bladder" : "Swim Bladder",
   "item.ccastroadds.resonant_core" : "Resonant Core",
   "item.ccastroadds.adrenal_catalyst" : "Adrenal Catalyst",
+  "item.ccastroadds.adrenal_shrieker" : "Adrenal Shrieker",
   "item.ccastroadds.tumor" : "Tumor",
   "item.ccastroadds.writhing_mass" : "Writhing Mass",
   "item.ccastroadds.bony_mass" : "Bony Mass",
@@ -40,7 +46,9 @@
   "organscore.ccastroadds.neutral_water_buoyant": "Neutrally Fluid Buoyant",
   "organscore.ccastroadds.panic": "%sPanicking",
   "organscore.ccastroadds.resonance": "Resonant",
+  "organscore.ccastroadds.shrieking": "Shrieking",
 
   "effect.ccastroadds.resonance_cooldown": "Resonance Cooldown",
+  "effect.ccastroadds.shrieking_cooldown": "Shrieking Cooldown",
   "effect.ccastroadds.panic": "Panic!"
 }

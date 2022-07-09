@@ -1,8 +1,0 @@
-{
-"itemID": "ccastroadds:steel_core",
-  "organScores": [
-    {"id":"chestcavity:health","value": "1"},
-    {"id":"chestcavity:defense","value": "1"},
-    {"id":"chestcavity:metabolism","value": "-1"}
-  ]
-}

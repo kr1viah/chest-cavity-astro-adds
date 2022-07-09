@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " P ",
+    "C#C"
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:glass_bottle"
+    },
+    "C": {
+      "item": "minecraft:gold_ingot"
+    },
+    "#": {
+      "tag": "minecraft:stone_crafting_materials"
+    }
+  },
+  "result": {
+    "item": "ccastroadds:electrolyzer"
+  }
+}

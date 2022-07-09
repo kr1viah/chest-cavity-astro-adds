@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "P",
+    "C",
+    "#"
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:potion"
+    },
+    "C": {
+      "item": "minecraft:iron_ingot"
+    },
+    "#": {
+      "tag": "minecraft:stone_crafting_materials"
+    }
+  },
+  "result": {
+    "item": "ccastroadds:nutrient_mixer"
+  }
+}

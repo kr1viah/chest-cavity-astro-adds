@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GIG",
+    "GrG",
+    "G G"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "I": {
+      "tag": "minecraft:planks"
+    },
+    "r": {
+      "item": "minecraft:repeater"
+    }
+  },
+  "result": {
+    "item": "ccastroadds:super_capacitor"
+  }
+}
