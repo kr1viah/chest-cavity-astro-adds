@@ -2,6 +2,7 @@ package net.astrospud.ccastroadds;
 
 import net.astrospud.ccastroadds.listeners.CCAAOrganOnHitListeners;
 import net.astrospud.ccastroadds.listeners.CCAAOrganTickListeners;
+import net.astrospud.ccastroadds.listeners.CCAAOrganUpdateListeners;
 import net.astrospud.ccastroadds.registration.CCAAStatusEffects;
 import net.astrospud.ccastroadds.registration.CCAAItems;
 import net.fabricmc.api.ModInitializer;
@@ -32,6 +33,7 @@ public class CCAstroAdds implements ModInitializer {
 		CCAAItems.registerModItems();
 		CCAAOrganTickListeners.register();
 		CCAAOrganOnHitListeners.register();
+		//CCAAOrganUpdateListeners.register();
 		CCAAStatusEffects.register();
 	}
 }

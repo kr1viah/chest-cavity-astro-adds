@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " C ",
+    "CHC",
+    " C "
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:amethyst_block"
+    },
+    "H": {
+      "item": "chestcavity:heart"
+    }
+  },
+  "result": {
+    "item": "ccastroadds:crystal_core"
+  }
+}

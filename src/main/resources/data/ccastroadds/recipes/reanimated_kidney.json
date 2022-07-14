@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "chestcavity:rotten_kidney"
+    },
+    {
+      "item": "chestcavity:rotten_kidney"
+    },
+    {
+      "item": "minecraft:golden_apple"
+    }
+  ],
+  "result": {
+    "item": "ccastroadds:reanimated_kidney",
+    "count": 2
+  }
+}

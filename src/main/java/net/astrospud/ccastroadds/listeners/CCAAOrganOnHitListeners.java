@@ -3,6 +3,7 @@ package net.astrospud.ccastroadds.listeners;
 import net.astrospud.ccastroadds.registration.CCAAOrganScores;
 import net.astrospud.ccastroadds.registration.CCAAStatusEffects;
 import net.astrospud.ccastroadds.specials.AmethystExplosion;
+import net.astrospud.ccastroadds.specials.ClusterExplosion;
 import net.astrospud.ccastroadds.specials.ShriekerExplosion;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -28,6 +29,7 @@ public class CCAAOrganOnHitListeners {
         OrganOnHitCallback.EVENT.register(CCAAOrganOnHitListeners::TickPanic);
         OrganOnHitCallback.EVENT.register(CCAAOrganOnHitListeners::TickResonance);
         OrganOnHitCallback.EVENT.register(CCAAOrganOnHitListeners::TickShrieking);
+        OrganOnHitCallback.EVENT.register(CCAAOrganOnHitListeners::TickClusterExplode);
     }
 
     public static void TickPanic(LivingEntity attacker, LivingEntity entity, ChestCavityInstance notused){
@@ -44,7 +46,9 @@ public class CCAAOrganOnHitListeners {
         if (!(entity instanceof ChestCavityEntity)) { return; }
         ChestCavityInstance cc = ((ChestCavityEntity)entity).getChestCavityInstance();
         float resonance = cc.getOrganScore(CCAAOrganScores.RESONANCE) - cc.getChestCavityType().getDefaultOrganScore(CCAAOrganScores.RESONANCE);
-        if (resonance < 1) {
+        float shrieking = cc.getOrganScore(CCAAOrganScores.SHRIEKING) - cc.getChestCavityType().getDefaultOrganScore(CCAAOrganScores.SHRIEKING);
+        resonance -= shrieking;
+        if (resonance <= 0) {
             return;
         }
         if (!entity.hasStatusEffect(CCAAStatusEffects.RESONANCE_COOLDOWN)) {
@@ -72,12 +76,13 @@ public class CCAAOrganOnHitListeners {
     public static void TickShrieking(LivingEntity attacker, LivingEntity entity, ChestCavityInstance notused){
         if (!(entity instanceof ChestCavityEntity)) { return; }
         ChestCavityInstance cc = ((ChestCavityEntity)entity).getChestCavityInstance();
-        float resonance = cc.getOrganScore(CCAAOrganScores.SHRIEKING) - cc.getChestCavityType().getDefaultOrganScore(CCAAOrganScores.SHRIEKING);
-        if (resonance < 1) {
+        float shrieking = cc.getOrganScore(CCAAOrganScores.SHRIEKING) - cc.getChestCavityType().getDefaultOrganScore(CCAAOrganScores.SHRIEKING);
+
+        if (shrieking <= 0) {
             return;
         }
         if (!entity.hasStatusEffect(CCAAStatusEffects.SHRIEKING_COOLDOWN)) {
-            entity.addStatusEffect(new StatusEffectInstance(CCAAStatusEffects.SHRIEKING_COOLDOWN, (int)(75/(resonance/2)),0, false, false, true));
+            entity.addStatusEffect(new StatusEffectInstance(CCAAStatusEffects.SHRIEKING_COOLDOWN, (int)(75/(shrieking/2)),0, false, false, true));
 
             Position entityPos = entity.getPos();
             double x = entityPos.getX();
@@ -94,5 +99,24 @@ public class CCAAOrganOnHitListeners {
                 //entityWorld.playSound((PlayerEntity) null, entity.getBlockPos(), SoundEvents.BLOCK_ANVIL_PLACE, SoundCategory.BLOCKS, 0.75F, 3F + entityWorld.random.nextFloat() * 0.4F);
             }
         }
+    }
+
+    public static void TickClusterExplode(LivingEntity attacker, LivingEntity entity, ChestCavityInstance notused){
+        if (!(entity instanceof ChestCavityEntity)) { return; }
+        ChestCavityInstance cc = ((ChestCavityEntity)entity).getChestCavityInstance();
+        float clusterBomb = cc.getOrganScore(CCAAOrganScores.CLUSTEREXPLODE) - cc.getChestCavityType().getDefaultOrganScore(CCAAOrganScores.CLUSTEREXPLODE);
+
+        if (clusterBomb <= 0) {
+            return;
+        }
+        Position entityPos = entity.getPos();
+        double x = entityPos.getX();
+        double y = entityPos.getY();
+        double z = entityPos.getZ();
+        float power = 5;
+        World entityWorld = entity.getWorld();
+
+        ClusterExplosion explosion = new ClusterExplosion(entityWorld, entity, x, y, z, power);
+        explosion.collectBlocksAndDamageEntities();
     }
 }

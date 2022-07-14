@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "chestcavity:rotten_rib"
+    },
+    {
+      "item": "chestcavity:rotten_rib"
+    },
+    {
+      "item": "chestcavity:rotten_rib"
+    },
+    {
+      "item": "chestcavity:rotten_rib"
+    },
+    {
+      "item": "minecraft:golden_apple"
+    }
+  ],
+  "result": {
+    "item": "ccastroadds:rejuvenated_rib",
+    "count": 4
+  }
+}

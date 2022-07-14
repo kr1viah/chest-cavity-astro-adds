@@ -20,6 +20,7 @@ public class CCAAOrganTickListeners {
 
     public static void register(){
         OrganTickCallback.EVENT.register(CCAAOrganTickListeners::TickNeutralWaterBuoyant);
+        OrganTickCallback.EVENT.register(CCAAOrganTickListeners::TickFlight);
     }
 
     public static void TickNeutralWaterBuoyant(LivingEntity entity, ChestCavityInstance chestCavity){
@@ -36,6 +37,30 @@ public class CCAAOrganTickListeners {
         else if(entity.isTouchingWater())
         {
             entity.addVelocity(0.0D, 0.005D, 0.0D);
+        }
+    }
+
+    public static void TickFlight(LivingEntity entity, ChestCavityInstance chestCavity){
+        float flight = chestCavity.getOrganScore(CCAAOrganScores.FLIGHT) - chestCavity.getChestCavityType().getDefaultOrganScore(CCAAOrganScores.FLIGHT);
+        if (flight < 1) {
+            if(entity instanceof PlayerEntity player && !player.isCreative()) {
+                player.getAbilities().allowFlying = false;
+                player.getAbilities().flying = false;
+            }
+            return;
+        }
+        else if(entity instanceof PlayerEntity player) {
+            player.getAbilities().allowFlying = true;
+        }
+
+        if((entity instanceof PlayerEntity player && !player.isCreative() && player.getAbilities().flying))
+        {
+            if (player.getHungerManager().getFoodLevel() > 0) {
+                player.getHungerManager().addExhaustion(1);
+            }
+            else {
+                player.damage(DamageSource.MAGIC, 1);
+            }
         }
     }
 }

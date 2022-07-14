@@ -1,0 +1,8 @@
+{
+  "itemID": "ccastroadds:rejuvenated_spine",
+  "organScores": [
+    {"id":"chestcavity:defense","value": "1"},
+    {"id":"chestcavity:endurance","value": "-1"},
+    {"id":"chestcavity:nerves","value": "1"}
+  ]
+}

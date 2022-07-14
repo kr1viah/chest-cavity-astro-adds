@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "sCC",
+    "s  "
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:amethyst_block"
+    },
+    "s": {
+      "item": "minecraft:amethyst_shard"
+    }
+  },
+  "result": {
+    "item": "ccastroadds:sharded_rib",
+    "count": 2
+  }
+}

@@ -60,7 +60,7 @@ public class ShriekerExplosion extends Explosion {
                         z /= aa;
                         double ab = (double)getExposure(vec3d, entity);
                         double ac = (1.0 - w) * ab;
-                        entity.damage(this.getDamageSource(), (float)((int)((ac * ac + ac) / 2.0 * 1.0 * (double)q + 1.0)));
+                        entity.damage(this.getDamageSource(), (float)((int)((ac * ac + ac) / 4.0 * (double)q + 1.0)));
                         double ad = ac;
                         if (entity instanceof LivingEntity) {
                             ad = ProtectionEnchantment.transformExplosionKnockback((LivingEntity)entity, ac);

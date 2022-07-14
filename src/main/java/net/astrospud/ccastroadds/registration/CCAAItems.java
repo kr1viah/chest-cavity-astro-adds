@@ -1,6 +1,7 @@
 package net.astrospud.ccastroadds.registration;
 
 import net.astrospud.ccastroadds.CCAstroAdds;
+import net.astrospud.ccastroadds.specials.GlintItem;
 import net.astrospud.ccastroadds.specials.TumorItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
@@ -64,11 +65,29 @@ public class CCAAItems {
     public static final Item NUTRIENT_MIXER = registerItem("nutrient_mixer",
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
 
+    //crystal set
+    public static final Item CRYSTAL_ROD = registerItem("crystal_rod",
+            new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(16)));
+    public static final Item CRYSTAL_CORE = registerItem("crystal_core",
+            new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
+    public static final Item SHARDED_RIB = registerItem("sharded_rib",
+            new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(4)));
+
     //computer parts
     public static final Item CIRCUITRY = registerItem("circuitry",
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
     public static final Item SUPER_CAPACITOR = registerItem("super_capacitor",
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
+
+    //rejuvenated parts
+    public static final Item REJUVENATED_RIB = registerItem("rejuvenated_rib",
+            new GlintItem(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(4)));
+    public static final Item REJUVENATED_SPINE = registerItem("rejuvenated_spine",
+            new GlintItem(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
+    public static final Item REANIMATED_HEART = registerItem("reanimated_heart",
+            new GlintItem(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
+    public static final Item REANIMATED_KIDNEY = registerItem("reanimated_kidney",
+            new GlintItem(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
 
     //utility
     public static final Item CAPTURED_SOUL = registerItem("captured_soul",
@@ -89,9 +108,14 @@ public class CCAAItems {
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
     public static final Item ADRENAL_SHRIEKER = registerItem("adrenal_shrieker",
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
+
+    public static final Item CLUSTER_BOMB = registerItem("cluster_bomb",
+            new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
     public static final Item TUMOR = registerItem("tumor",
             new TumorItem(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
     //I have zero idea how to make tumor work, so I've removed its recipe and all child recipes
+    public static final Item DRACONIS_FUNDAMENTUM = registerItem("draconis_fundamentum",
+            new GlintItem(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registry.ITEM, new Identifier(CCAstroAdds.MOD_ID, name), item);

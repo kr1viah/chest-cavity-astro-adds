@@ -1,0 +1,9 @@
+{
+"itemID": "ccastroadds:draconis_fundamentum",
+  "organScores": [
+    {"id":"chestcavity:metabolism","value": "-1"},
+    {"id":"chestcavity:endurance","value": "-1"},
+    {"id":"chestcavity:speed","value": "-1"},
+    {"id":"ccastroadds:flight","value": "1"}
+  ]
+}

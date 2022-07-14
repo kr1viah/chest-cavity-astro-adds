@@ -25,8 +25,17 @@
   "item.ccastroadds.boiler" : "Boiler",
   "item.ccastroadds.nutrient_mixer" : "Nutrient Mixer",
 
+  "item.ccastroadds.crystal_rod" : "Crystal Rod",
+  "item.ccastroadds.crystal_core" : "Crystal Core",
+  "item.ccastroadds.sharded_rib" : "Sharded Rib",
+
   "item.ccastroadds.circuitry" : "Circuitry",
   "item.ccastroadds.super_capacitor" : "Super Capacitor",
+
+  "item.ccastroadds.rejuvenated_rib" : "Rejuvenated Rib",
+  "item.ccastroadds.rejuvenated_spine" : "Rejuvenated Spine",
+  "item.ccastroadds.reanimated_heart" : "Reanimated Heart",
+  "item.ccastroadds.reanimated_kidney" : "Reanimated Kidney",
 
   "item.ccastroadds.captured_soul" : "Captured Soul",
   "item.ccastroadds.creative_soul" : "Creative Soul",
@@ -38,15 +47,20 @@
   "item.ccastroadds.adrenal_catalyst" : "Adrenal Catalyst",
   "item.ccastroadds.adrenal_shrieker" : "Adrenal Shrieker",
   "item.ccastroadds.tumor" : "Tumor",
-  "item.ccastroadds.writhing_mass" : "Writhing Mass",
-  "item.ccastroadds.bony_mass" : "Bony Mass",
+
+  "item.ccastroadds.draconis_fundamentum" : "Draconis Fundamentum",
+
+  "item.ccastroadds.cluster_bomb" : "Cluster Bomb",
+
   "tooltip.ccastroadds.tumor" : "tumor desc",
   "tooltip.ccastroadds.tumor.craft" : "Crafted!",
 
   "organscore.ccastroadds.neutral_water_buoyant": "Neutrally Fluid Buoyant",
   "organscore.ccastroadds.panic": "%sPanicking",
-  "organscore.ccastroadds.resonance": "Resonant",
+  "organscore.ccastroadds.resonance": "%sResonance",
   "organscore.ccastroadds.shrieking": "Shrieking",
+  "organscore.ccastroadds.cluster_explode": "Cluster Explosion",
+  "organscore.ccastroadds.flight": "Allows Flight",
 
   "effect.ccastroadds.resonance_cooldown": "Resonance Cooldown",
   "effect.ccastroadds.shrieking_cooldown": "Shrieking Cooldown",
