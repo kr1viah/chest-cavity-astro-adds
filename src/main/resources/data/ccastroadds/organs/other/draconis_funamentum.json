@@ -3,7 +3,8 @@
   "organScores": [
     {"id":"chestcavity:metabolism","value": "-1"},
     {"id":"chestcavity:endurance","value": "-1"},
-    {"id":"chestcavity:speed","value": "-1"},
-    {"id":"ccastroadds:flight","value": "1"}
+    {"id":"chestcavity:health","value": "-1"},
+    {"id":"ccastroadds:flight","value": "1"},
+    {"id":"chestcavity:buff_purging","value": "1"}
   ]
 }
