@@ -2,7 +2,6 @@ package net.astrospud.ccastroadds.registration;
 
 import net.astrospud.ccastroadds.CCAstroAdds;
 import net.astrospud.ccastroadds.specials.GlintItem;
-import net.astrospud.ccastroadds.specials.TumorItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
@@ -111,8 +110,6 @@ public class CCAAItems {
 
     public static final Item CLUSTER_BOMB = registerItem("cluster_bomb",
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
-    public static final Item TUMOR = registerItem("tumor",
-            new TumorItem(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
     //I have zero idea how to make tumor work, so I've removed its recipe and all child recipes
     public static final Item DRACONIS_FUNDAMENTUM = registerItem("draconis_fundamentum",
             new GlintItem(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
