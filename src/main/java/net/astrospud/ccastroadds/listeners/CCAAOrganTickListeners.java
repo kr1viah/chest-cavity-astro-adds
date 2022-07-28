@@ -43,7 +43,7 @@ public class CCAAOrganTickListeners {
     public static void TickFlight(LivingEntity entity, ChestCavityInstance chestCavity){
         float flight = chestCavity.getOrganScore(CCAAOrganScores.FLIGHT) - chestCavity.getChestCavityType().getDefaultOrganScore(CCAAOrganScores.FLIGHT);
         if (flight < 1) {
-            if(entity instanceof PlayerEntity player && !player.isCreative()) {
+            if(entity instanceof PlayerEntity player && !player.isCreative() && !player.isSpectator()) {
                 player.getAbilities().allowFlying = false;
                 player.getAbilities().flying = false;
             }
