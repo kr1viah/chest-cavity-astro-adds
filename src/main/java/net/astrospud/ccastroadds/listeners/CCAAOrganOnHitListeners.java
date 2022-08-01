@@ -26,13 +26,13 @@ import net.tigereye.chestcavity.registration.CCOrganScores;
 
 public class CCAAOrganOnHitListeners {
     public static void register(){
-        OrganOnHitCallback.EVENT.register(CCAAOrganOnHitListeners::TickPanic);
+        //OrganOnHitCallback.EVENT.register(CCAAOrganOnHitListeners::TickPanic);
         OrganOnHitCallback.EVENT.register(CCAAOrganOnHitListeners::TickResonance);
         OrganOnHitCallback.EVENT.register(CCAAOrganOnHitListeners::TickShrieking);
         OrganOnHitCallback.EVENT.register(CCAAOrganOnHitListeners::TickClusterExplode);
     }
 
-    public static void TickPanic(LivingEntity attacker, LivingEntity entity, ChestCavityInstance notused){
+    public static void TickPanic(LivingEntity entity){
         if (!(entity instanceof ChestCavityEntity)) { return; }
         ChestCavityInstance cc = ((ChestCavityEntity)entity).getChestCavityInstance();
         float panic = cc.getOrganScore(CCAAOrganScores.PANIC) - cc.getChestCavityType().getDefaultOrganScore(CCAAOrganScores.PANIC);
