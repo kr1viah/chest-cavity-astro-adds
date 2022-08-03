@@ -1,0 +1,7 @@
+{
+"itemID": "minecraft:amethyst_shard",
+  "pseudoOrgan": true,
+  "organScores": [
+    {"id":"ccastroadds:resonance","value": "2"}
+  ]
+}
