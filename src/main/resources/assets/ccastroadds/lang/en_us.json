@@ -46,6 +46,8 @@
   "item.ccastroadds.resonant_core" : "Resonant Core",
   "item.ccastroadds.adrenal_catalyst" : "Adrenal Catalyst",
   "item.ccastroadds.adrenal_shrieker" : "Adrenal Shrieker",
+  "item.ccastroadds.steel_stomach" : "Steel Stomach",
+  "item.ccastroadds.steel_rumen" : "Steel Rumen",
 
   "item.ccastroadds.draconis_fundamentum" : "Draconis Fundamentum",
 
@@ -53,6 +55,9 @@
 
   "tooltip.ccastroadds.tumor" : "tumor desc",
   "tooltip.ccastroadds.tumor.craft" : "Crafted!",
+  "tooltip.ccastroadds.doniitem" : "Thank you Doni Bobes!",
+  "tooltip.ccastroadds.right" : "Right-click while holding",
+  "msg.ccastroadds.click" : "Click me!",
 
   "organscore.ccastroadds.neutral_water_buoyant": "Neutrally Fluid Buoyant",
   "organscore.ccastroadds.panic": "%sPanicking",
@@ -60,6 +65,8 @@
   "organscore.ccastroadds.shrieking": "Shrieking",
   "organscore.ccastroadds.cluster_explode": "Cluster Explosion",
   "organscore.ccastroadds.flight": "Allows Flight",
+  "organscore.ccastroadds.iron_gut": "%sIron Gut",
+  "organscore.ccastroadds.eat_the_rich": "%sIron Rumination",
 
   "effect.ccastroadds.resonance_cooldown": "Resonance Cooldown",
   "effect.ccastroadds.shrieking_cooldown": "Shrieking Cooldown",

@@ -1,0 +1,7 @@
+{
+  "itemID": "ccastroadds:steel_rumen",
+  "organScores": [
+    {"id":"chestcavity:digestion","value": "0.5"},
+    {"id":"ccastroadds:eat_the_rich","value": "1"}
+  ]
+}

@@ -6,7 +6,8 @@
   "mixins": [
   ],
   "client": [
-    "CCAALivingEntityMixin"
+    "CCAALivingEntityMixin",
+    "OrganActivationListenersMixin"
   ],
   "injectors": {
     "defaultRequire": 1

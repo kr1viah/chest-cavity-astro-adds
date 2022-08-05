@@ -1,6 +1,7 @@
 package net.astrospud.ccastroadds.registration;
 
 import net.astrospud.ccastroadds.CCAstroAdds;
+import net.astrospud.ccastroadds.specials.DoniItem;
 import net.astrospud.ccastroadds.specials.GlintItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
@@ -107,6 +108,10 @@ public class CCAAItems {
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
     public static final Item ADRENAL_SHRIEKER = registerItem("adrenal_shrieker",
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
+    public static final Item STEEL_STOMACH = registerItem("steel_stomach",
+            new DoniItem(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
+    public static final Item STEEL_RUMEN = registerItem("steel_rumen",
+            new DoniItem(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
 
     public static final Item CLUSTER_BOMB = registerItem("cluster_bomb",
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));

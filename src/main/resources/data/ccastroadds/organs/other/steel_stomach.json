@@ -1,0 +1,7 @@
+{
+  "itemID": "ccastroadds:steel_stomach",
+  "organScores": [
+    {"id":"chestcavity:digestion","value": "0.5"},
+    {"id":"ccastroadds:iron_gut","value": "1"}
+  ]
+}

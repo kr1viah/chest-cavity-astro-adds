@@ -1,5 +1,6 @@
 package net.astrospud.ccastroadds;
 
+import net.astrospud.ccastroadds.listeners.CCAAOrganFoodEffectListeners;
 import net.astrospud.ccastroadds.listeners.CCAAOrganOnHitListeners;
 import net.astrospud.ccastroadds.listeners.CCAAOrganTickListeners;
 import net.astrospud.ccastroadds.listeners.CCAAOrganUpdateListeners;
@@ -33,6 +34,7 @@ public class CCAstroAdds implements ModInitializer {
 		CCAAItems.registerModItems();
 		CCAAOrganTickListeners.register();
 		CCAAOrganOnHitListeners.register();
+		CCAAOrganFoodEffectListeners.register();
 		//CCAAOrganUpdateListeners.register();
 		CCAAStatusEffects.register();
 	}
