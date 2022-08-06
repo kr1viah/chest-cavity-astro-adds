@@ -4,9 +4,13 @@
   "package": "net.astrospud.ccastroadds.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "CCAALivingEntityMixin",
+    "CCAAEntityMixin",
+    "OrganActivationListenersMixin"
   ],
   "client": [
     "CCAALivingEntityMixin",
+    "CCAAEntityMixin",
     "OrganActivationListenersMixin"
   ],
   "injectors": {

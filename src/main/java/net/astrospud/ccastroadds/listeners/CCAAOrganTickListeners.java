@@ -4,6 +4,7 @@ import net.astrospud.ccastroadds.registration.CCAAOrganScores;
 import net.astrospud.ccastroadds.registration.CCAAStatusEffects;
 import net.astrospud.ccastroadds.specials.AmethystExplosion;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityPose;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -15,12 +16,14 @@ import net.minecraft.util.math.Position;
 import net.minecraft.world.World;
 import net.tigereye.chestcavity.chestcavities.instance.ChestCavityInstance;
 import net.tigereye.chestcavity.listeners.OrganTickCallback;
+import net.tigereye.chestcavity.registration.CCOrganScores;
 
 public class CCAAOrganTickListeners {
 
     public static void register(){
         OrganTickCallback.EVENT.register(CCAAOrganTickListeners::TickNeutralWaterBuoyant);
         OrganTickCallback.EVENT.register(CCAAOrganTickListeners::TickFlight);
+        //OrganTickCallback.EVENT.register(CCAAOrganTickListeners::TickNerveFallDown);
     }
 
     public static void TickNeutralWaterBuoyant(LivingEntity entity, ChestCavityInstance chestCavity){
@@ -63,4 +66,16 @@ public class CCAAOrganTickListeners {
             }
         }
     }
+
+    /*public static void TickNerveFallDown(LivingEntity entity, ChestCavityInstance chestCavity) {
+        float nerves = chestCavity.getOrganScore(CCOrganScores.NERVES);
+        float defnerves = chestCavity.getChestCavityType().getDefaultOrganScore(CCOrganScores.NERVES);
+        if (nerves <= 0 && defnerves > 0 && entity instanceof PlayerEntity player) {
+            entity.setPose(EntityPose.SWIMMING);
+            player.setBoundingBox(entity.getBoundingBox(EntityPose.SWIMMING));
+        }
+        else {
+            entity.shouldLeaveSwimmingPose();
+        }
+    }*/
 }
