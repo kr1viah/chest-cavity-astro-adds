@@ -24,7 +24,7 @@ public abstract class CCAAEntityMixin {
 		super();
 	}
 
-	/*@Inject(at = @At("RETURN"), method = "shouldLeaveSwimmingPose", cancellable = true)
+	@Inject(at = @At("RETURN"), method = "shouldLeaveSwimmingPose", cancellable = true)
 	public void ccaaShouldLeaveSwimmingPoseMixin(CallbackInfoReturnable<Boolean> cir) {
 		if ((Object)this instanceof ChestCavityEntity entity) {
 			ChestCavityInstance chestCavity = entity.getChestCavityInstance();
@@ -37,5 +37,5 @@ public abstract class CCAAEntityMixin {
 				cir.setReturnValue(false);
 			}
 		}
-	}*/
+	}
 }

@@ -39,7 +39,7 @@ public abstract class CCAALivingEntityMixin extends Entity implements ChestCavit
 		}
 	}
 
-	/*@Inject(at = @At("RETURN"), method = "isInSwimmingPose", cancellable = true)
+	@Inject(at = @At("RETURN"), method = "isInSwimmingPose", cancellable = true)
 	public void ccaaIsInSwimmingPoseMixin(CallbackInfoReturnable<Boolean> cir) {
 		if ((Object)this instanceof ChestCavityEntity entity) {
 			ChestCavityInstance chestCavity = entity.getChestCavityInstance();
@@ -71,5 +71,5 @@ public abstract class CCAALivingEntityMixin extends Entity implements ChestCavit
 				}
 			}
 		}
-	}*/
+	}
 }
