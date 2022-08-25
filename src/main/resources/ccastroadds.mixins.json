@@ -7,13 +7,15 @@
     "CCAALivingEntityMixin",
     "CCAAEntityMixin",
     "OrganActivationListenersMixin",
-    "OrganTickListenersMixin"
+    "OrganTickListenersMixin",
+    "ChestCavityInstanceMixin"
   ],
   "client": [
     "CCAALivingEntityMixin",
     "CCAAEntityMixin",
     "OrganActivationListenersMixin",
-    "OrganTickListenersMixin"
+    "OrganTickListenersMixin",
+    "ChestCavityInstanceMixin"
   ],
   "injectors": {
     "defaultRequire": 1
