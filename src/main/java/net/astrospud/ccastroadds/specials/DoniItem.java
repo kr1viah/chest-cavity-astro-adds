@@ -33,7 +33,9 @@ public class DoniItem extends Item{
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        user.sendMessage(Text.translatable("msg.ccastroadds.click").setStyle(Style.EMPTY.withUnderline(true).withFormatting(Formatting.GOLD).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://www.youtube.com/c/DoniBobesMC"))));
+        if (!world.isClient){
+            user.sendMessage(Text.translatable("msg.ccastroadds.click").setStyle(Style.EMPTY.withUnderline(true).withFormatting(Formatting.GOLD).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://www.youtube.com/c/DoniBobesMC"))));
+        }
         //new ClickEvent(ClickEvent.Action.OPEN_URL, "https://www.youtube.com/c/DoniBobesMC");
         //ClickEvent.Action.OPEN_URL
         return super.use(world, user, hand);

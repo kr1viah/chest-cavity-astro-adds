@@ -4,6 +4,7 @@
     {"id":"chestcavity:health","value": "0.75"},
     {"id":"chestcavity:defense","value": "0.75"},
     {"id":"chestcavity:metabolism","value": "-1"},
-    {"id":"ccastroadds:panic","value": "1"}
+    {"id":"ccastroadds:panic","value": "1"},
+    {"id":"ccastroadds:solar_plexus","value": "6"}
   ]
 }
