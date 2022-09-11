@@ -3,6 +3,7 @@
   "organScores": [
     {"id":"chestcavity:health","value": "0.25"},
     {"id":"chestcavity:metabolism","value": "0.25"},
-    {"id":"chestcavity:nerves","value": "0.25"}
+    {"id":"chestcavity:nerves","value": "0.25"},
+    {"id":"chestcavity:filtration","value": "0.25"}
   ]
 }

@@ -2,7 +2,7 @@
   "itemID": "ccastroadds:reanimated_heart",
   "organScores": [
     {"id":"chestcavity:metabolism","value": "0.25"},
-    {"id":"chestcavity:endurance","value": "-0.5"},
+    {"id":"chestcavity:strength","value": "-0.5"},
     {"id":"chestcavity:health","value": "1"}
   ]
 }

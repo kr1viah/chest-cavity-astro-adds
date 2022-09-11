@@ -1,5 +1,6 @@
 package net.astrospud.ccastroadds.listeners;
 
+import net.astrospud.ccastroadds.registration.CCAAItems;
 import net.astrospud.ccastroadds.registration.CCAAOrganScores;
 import net.astrospud.ccastroadds.registration.CCAAStatusEffects;
 import net.astrospud.ccastroadds.specials.AmethystExplosion;
@@ -14,6 +15,7 @@ import net.minecraft.entity.player.PlayerAbilities;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
@@ -21,12 +23,14 @@ import net.minecraft.util.math.Position;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.stateprovider.PredicatedStateProvider;
 import net.tigereye.chestcavity.ChestCavity;
+import net.tigereye.chestcavity.chestcavities.ChestCavityInventory;
 import net.tigereye.chestcavity.chestcavities.instance.ChestCavityInstance;
 import net.tigereye.chestcavity.listeners.OrganTickCallback;
 import net.tigereye.chestcavity.listeners.OrganUpdateCallback;
 import net.tigereye.chestcavity.registration.CCOrganScores;
 import net.tigereye.chestcavity.util.ChestCavityUtil;
 import net.tigereye.chestcavity.util.NetworkUtil;
+import net.tigereye.chestcavity.util.OrganUtil;
 import org.spongepowered.include.com.google.common.base.Predicates;
 
 import java.util.ArrayList;
@@ -38,6 +42,7 @@ public class CCAAOrganTickListeners {
     public static void register(){
         OrganTickCallback.EVENT.register(CCAAOrganTickListeners::TickNeutralWaterBuoyant);
         OrganTickCallback.EVENT.register(CCAAOrganTickListeners::TickFlight);
+        OrganTickCallback.EVENT.register(CCAAOrganTickListeners::TickRegrowth);
         //OrganTickCallback.EVENT.register(CCAAOrganTickListeners::TickPlexis);
         //OrganTickCallback.EVENT.register(CCAAOrganTickListeners::TickNerveFallDown);
     }
@@ -83,13 +88,26 @@ public class CCAAOrganTickListeners {
         }
     }
 
-    public static void TickThing(LivingEntity entity, ChestCavityInstance cc){
-        //List<ItemStack> organs = new ArrayList<>();
-        for (int i = 0; i < cc.getChestCavityType().getDefaultChestCavity().size(); i++) {
-            ItemStack organ = cc.getChestCavityType().getDefaultChestCavity().getStack(i);
-            //organs.add(organ);
-            int count = organ.getCount();
-            Item item = organ.getItem();
+    public static void TickRegrowth(LivingEntity entity, ChestCavityInstance cc){
+        float growth = cc.getOrganScore(CCAAOrganScores.REGROWTH) - cc.getChestCavityType().getDefaultOrganScore(CCAAOrganScores.REGROWTH);
+        if (growth <= 0) {
+            return;
+        }
+        ChestCavityInventory def = cc.getChestCavityType().getDefaultChestCavity();
+
+        for (int i = 0; i < def.size(); i++) {
+            ItemStack organHas = cc.inventory.getStack(i);
+            ItemStack organDef = def.getStack(i);
+            if (!organDef.isEmpty() && organHas.getItem() == organDef.getItem() && organHas.getCount() < organDef.getMaxCount()) {
+                organHas.increment(1);
+                cc.inventory.setStack(i, organHas);
+                break;
+            } else if (organHas.isEmpty()) {
+                ItemStack organToBe = !organDef.isEmpty() ? organDef : CCAAItems.BENIGN_TUMOR.getDefaultStack();
+                organToBe.setCount(1);
+                cc.inventory.setStack(i, organToBe);
+                break;
+            }
         }
     }
 
