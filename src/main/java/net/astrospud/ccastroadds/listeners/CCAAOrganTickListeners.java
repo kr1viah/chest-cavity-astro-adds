@@ -100,17 +100,21 @@ public class CCAAOrganTickListeners {
             ItemStack organHas = cc.inventory.getStack(i);
             ItemStack organDefault = def.getStack(i);
             organDefault.setCount(1);
-            if (!organDefault.isEmpty() && organHas.getItem() == organDefault.getItem() && organHas.getCount() < organDefault.getMaxCount()) {
+            /*if (!organDefault.isEmpty() && organHas.getItem() == organDefault.getItem() && organHas.getCount() < organDefault.getMaxCount()) {
+                organDefault.setCount(organHas.getCount()+1);
+                cc.inventory.setStack(i, organDefault);
+                return;
+            }*/
+            if (organHas.isEmpty()) {
+                if (organDefault.isEmpty() /*|| entity.getRandom().nextFloat() <= 0.25*/) {
+                    organDefault = CCAAItems.BENIGN_TUMOR.getDefaultStack();
+                }
+                cc.inventory.setStack(i, organDefault);
+                return;
+            } else if (organHas.getItem() == organDefault.getItem() && organHas.getCount() < organHas.getMaxCount()) {
                 organHas.increment(1);
                 cc.inventory.setStack(i, organHas);
-                break;
-            }
-            if (organHas.isEmpty()) {
-                /*if (entity.getRandom().nextFloat() <= 0.25) {
-                    organDefault = CCAAItems.BENIGN_TUMOR.getDefaultStack();
-                }*/
-                cc.inventory.setStack(i, organDefault);
-                break;
+                return;
             }
         }
     }
