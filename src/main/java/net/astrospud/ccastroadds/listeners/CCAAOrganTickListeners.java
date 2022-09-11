@@ -66,6 +66,7 @@ public class CCAAOrganTickListeners {
 
     public static void TickFlight(LivingEntity entity, ChestCavityInstance chestCavity){
         float flight = chestCavity.getOrganScore(CCAAOrganScores.FLIGHT) - chestCavity.getChestCavityType().getDefaultOrganScore(CCAAOrganScores.FLIGHT);
+        //TODO: Use PAL for flight instead of breaking compatibility
         if (flight < 1) {
             if(entity instanceof PlayerEntity player && !player.isCreative() && !player.isSpectator()) {
                 player.getAbilities().allowFlying = false;
@@ -97,15 +98,18 @@ public class CCAAOrganTickListeners {
 
         for (int i = 0; i < def.size(); i++) {
             ItemStack organHas = cc.inventory.getStack(i);
-            ItemStack organDef = def.getStack(i);
-            if (!organDef.isEmpty() && organHas.getItem() == organDef.getItem() && organHas.getCount() < organDef.getMaxCount()) {
+            ItemStack organDefault = def.getStack(i).isEmpty() ? CCAAItems.BENIGN_TUMOR.getDefaultStack() : def.getStack(i);
+            organDefault.setCount(1);
+            if (organHas.getItem() == organDefault.getItem() && organHas.getCount() < organDefault.getMaxCount()) {
                 organHas.increment(1);
                 cc.inventory.setStack(i, organHas);
                 break;
-            } else if (organHas.isEmpty()) {
-                ItemStack organToBe = !organDef.isEmpty() ? organDef : CCAAItems.BENIGN_TUMOR.getDefaultStack();
-                organToBe.setCount(1);
-                cc.inventory.setStack(i, organToBe);
+            }
+            if (organHas.isEmpty()) {
+                if (entity.getRandom().nextFloat() <= 0.25) {
+                    organDefault = CCAAItems.BENIGN_TUMOR.getDefaultStack();
+                }
+                cc.inventory.setStack(i, organDefault);
                 break;
             }
         }

@@ -2,7 +2,8 @@
   "itemID": "ccastroadds:benign_tumor",
   "organScores": [
     {"id":"chestcavity:health","value": "0.25"},
-    {"id":"chestcavity:metabolism","value": "0.25"},
+    {"id":"chestcavity:speed","value": "0.25"},
+    {"id":"chestcavity:breath_recovery","value": "0.25"},
     {"id":"chestcavity:nerves","value": "0.25"},
     {"id":"chestcavity:filtration","value": "0.25"}
   ]
