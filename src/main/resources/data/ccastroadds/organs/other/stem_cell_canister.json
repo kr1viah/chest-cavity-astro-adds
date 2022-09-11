@@ -1,0 +1,10 @@
+{
+  "itemID": "ccastroadds:stem_cell_canister",
+  "organScores": [
+    {"id":"chestcavity:health","value": "-0.25"},
+    {"id":"chestcavity:nerves","value": "-0.25"},
+    {"id":"chestcavity:defense","value": "-0.25"},
+    {"id":"chestcavity:filtration","value": "-0.25"},
+    {"id":"ccastroadds:regrowth","value": "1"}
+  ]
+}

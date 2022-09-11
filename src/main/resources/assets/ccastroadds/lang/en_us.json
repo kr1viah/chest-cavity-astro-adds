@@ -49,6 +49,9 @@
   "item.ccastroadds.steel_stomach" : "Steel Stomach",
   "item.ccastroadds.steel_rumen" : "Steel Rumen",
 
+  "item.ccastroadds.benign_tumor" : "Benign Tumor",
+  "item.ccastroadds.stem_cell_canister" : "Stem Cell Canister",
+
   "item.ccastroadds.draconis_fundamentum" : "Draconis Fundamentum",
 
   "item.ccastroadds.cluster_bomb" : "Cluster Bomb",
@@ -66,7 +69,8 @@
   "organscore.ccastroadds.cluster_explode": "Cluster Explosion",
   "organscore.ccastroadds.flight": "Allows Flight",
   "organscore.ccastroadds.iron_gut": "%sIron Gut",
-  "organscore.ccastroadds.eat_the_rich": "%sIron Rumination",
+  "organscore.ccastroadds.eat_the_rich": "%sBlock Rumination",
+  "organscore.ccastroadds.regrowth": "Organ Regrowth",
 
   "effect.ccastroadds.resonance_cooldown": "Resonance Cooldown",
   "effect.ccastroadds.shrieking_cooldown": "Shrieking Cooldown",

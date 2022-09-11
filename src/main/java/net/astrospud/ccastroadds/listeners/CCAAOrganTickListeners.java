@@ -12,6 +12,8 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerAbilities;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
@@ -27,6 +29,8 @@ import net.tigereye.chestcavity.util.ChestCavityUtil;
 import net.tigereye.chestcavity.util.NetworkUtil;
 import org.spongepowered.include.com.google.common.base.Predicates;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class CCAAOrganTickListeners {
@@ -76,6 +80,16 @@ public class CCAAOrganTickListeners {
             else {
                 player.damage(DamageSource.MAGIC, 1);
             }
+        }
+    }
+
+    public static void TickThing(LivingEntity entity, ChestCavityInstance cc){
+        //List<ItemStack> organs = new ArrayList<>();
+        for (int i = 0; i < cc.getChestCavityType().getDefaultChestCavity().size(); i++) {
+            ItemStack organ = cc.getChestCavityType().getDefaultChestCavity().getStack(i);
+            //organs.add(organ);
+            int count = organ.getCount();
+            Item item = organ.getItem();
         }
     }
 

@@ -113,6 +113,11 @@ public class CCAAItems {
     public static final Item STEEL_RUMEN = registerItem("steel_rumen",
             new DoniItem(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
 
+    public static final Item BENIGN_TUMOR = registerItem("benign_tumor",
+            new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
+    public static final Item STEM_CELL_CANISTER = registerItem("stem_cell_canister",
+            new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
+
     public static final Item CLUSTER_BOMB = registerItem("cluster_bomb",
             new Item(new FabricItemSettings().group(ChestCavity.ORGAN_ITEM_GROUP).maxCount(1)));
     //I have zero idea how to make tumor work, so I've removed its recipe and all child recipes
