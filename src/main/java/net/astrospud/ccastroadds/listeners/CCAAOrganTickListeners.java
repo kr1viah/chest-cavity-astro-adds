@@ -98,17 +98,17 @@ public class CCAAOrganTickListeners {
 
         for (int i = 0; i < def.size(); i++) {
             ItemStack organHas = cc.inventory.getStack(i);
-            ItemStack organDefault = def.getStack(i).isEmpty() ? CCAAItems.BENIGN_TUMOR.getDefaultStack() : def.getStack(i);
+            ItemStack organDefault = def.getStack(i);
             organDefault.setCount(1);
-            if (organHas.getItem() == organDefault.getItem() && organHas.getCount() < organDefault.getMaxCount()) {
+            if (!organDefault.isEmpty() && organHas.getItem() == organDefault.getItem() && organHas.getCount() < organDefault.getMaxCount()) {
                 organHas.increment(1);
                 cc.inventory.setStack(i, organHas);
                 break;
             }
             if (organHas.isEmpty()) {
-                if (entity.getRandom().nextFloat() <= 0.25) {
+                /*if (entity.getRandom().nextFloat() <= 0.25) {
                     organDefault = CCAAItems.BENIGN_TUMOR.getDefaultStack();
-                }
+                }*/
                 cc.inventory.setStack(i, organDefault);
                 break;
             }
