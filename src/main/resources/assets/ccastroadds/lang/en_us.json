@@ -52,6 +52,7 @@
   "item.ccastroadds.steel_rumen" : "Steel Rumen",
 
   "item.ccastroadds.benign_tumor" : "Benign Tumor",
+  "item.ccastroadds.autophagy_tumor" : "Autophagy Tumor",
   "item.ccastroadds.stem_cell_canister" : "Stem Cell Canister",
 
   "item.ccastroadds.draconis_fundamentum" : "Draconis Fundamentum",
@@ -73,6 +74,7 @@
   "organscore.ccastroadds.iron_gut": "%sIron Gut",
   "organscore.ccastroadds.eat_the_rich": "%sBlock Rumination",
   "organscore.ccastroadds.regrowth": "Organ Regrowth",
+  "organscore.ccastroadds.autophagy": "Autophagy",
 
   "effect.ccastroadds.resonance_cooldown": "Resonance Cooldown",
   "effect.ccastroadds.shrieking_cooldown": "Shrieking Cooldown",

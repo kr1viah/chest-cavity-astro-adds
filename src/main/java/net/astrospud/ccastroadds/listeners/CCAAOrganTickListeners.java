@@ -3,6 +3,7 @@ package net.astrospud.ccastroadds.listeners;
 import net.astrospud.ccastroadds.CCAstroAdds;
 import net.astrospud.ccastroadds.registration.CCAAItems;
 import net.astrospud.ccastroadds.registration.CCAAOrganScores;
+import net.astrospud.ccastroadds.util.AstralCavityUtil;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
@@ -16,12 +17,12 @@ import net.tigereye.chestcavity.chestcavities.instance.ChestCavityInstance;
 import net.tigereye.chestcavity.listeners.OrganTickCallback;
 
 public class CCAAOrganTickListeners {
-
     public static void register(){
         OrganTickCallback.EVENT.register(CCAAOrganTickListeners::TickNeutralWaterBuoyant);
         OrganTickCallback.EVENT.register(CCAAOrganTickListeners::TickFlight);
         OrganTickCallback.EVENT.register(CCAAOrganTickListeners::TickRegrowth);
-        //OrganTickCallback.EVENT.register(CCAAOrganTickListeners::TickPlexis);
+        OrganTickCallback.EVENT.register(CCAAOrganTickListeners::TickAutophagy);
+//OrganTickCallback.EVENT.register(CCAAOrganTickListeners::TickPlexis);
         //OrganTickCallback.EVENT.register(CCAAOrganTickListeners::TickNerveFallDown);
     }
 
@@ -69,77 +70,21 @@ public class CCAAOrganTickListeners {
 
     public static void TickRegrowth(LivingEntity entity, ChestCavityInstance cc){
         float growth = cc.getOrganScore(CCAAOrganScores.REGROWTH) - cc.getChestCavityType().getDefaultOrganScore(CCAAOrganScores.REGROWTH);
-        //int cooldown = CCAstroAdds.config.REGROWTH_COOLDOWN;
-        //int cooldown = 20;
-        if (growth <= 0 || !(entity.world.getTime() % CCAstroAdds.config.REGROWTH_COOLDOWN == 0)) {
+
+        if (growth <= 0 || entity.age % CCAstroAdds.config.REGROWTH_COOLDOWN != 0) {
             return;
         }
-        ChestCavityInventory def = cc.getChestCavityType().getDefaultChestCavity();
 
-        for (int g = 0; g < growth; g++) {
-            for (int i = 0; i < def.size(); i++) {
-                ItemStack organHas = cc.inventory.getStack(i);
-                ItemStack organDefault = def.getStack(i);
-                organDefault.setCount(organDefault.getMaxCount());
-                if (organHas.isEmpty()) {
-                    if (organDefault.isEmpty() || entity.getRandom().nextFloat() <= 0.25 || organDefault.getItem() == Items.DIRT) {
-                        organDefault = CCAAItems.BENIGN_TUMOR.getDefaultStack();
-                    }
-                    if (!organDefault.isEmpty() && !(entity instanceof PlayerEntity)) {
-                        NbtCompound tag = new NbtCompound();
-                        tag.putUuid("owner", cc.compatibility_id);
-                        tag.putString("name", cc.owner.getDisplayName().getString());
-                        organDefault.setSubNbt(ChestCavity.COMPATIBILITY_TAG.toString(), tag);
-                    }
-                    cc.inventory.setStack(i, organDefault);
-                    break;
-                }
-            }
-        }
+        AstralCavityUtil.growBackOrgans(entity, cc, growth);
     }
 
-    /*public static void TickPlexis(LivingEntity entity, ChestCavityInstance chestCavity) {
-        World world = entity.getWorld();
-        boolean hasDayCycle = !world.getDimension().hasFixedTime();
-        boolean isDay = world.isDay();
-        boolean isNight = world.isNight();
+    public static void TickAutophagy(LivingEntity entity, ChestCavityInstance cc){
+        float autophagy = MathHelper.ceil(cc.getOrganScore(CCAAOrganScores.AUTOPHAGY));
 
-        if (hasDayCycle) {
-            if (isDay) {
-                //solar boost
-            }
-            else if (isNight) {
-                //lunar boost
-            }
+        if (autophagy <= 0 || entity.age % CCAstroAdds.config.AUTOPHAGY_COOLDOWN != 0) {
+            return;
         }
-        //eclipse boost
 
-        long time = world.getTimeOfDay();
+        AstralCavityUtil.eatOrgans(entity, cc, autophagy);
     }
-
-    public static void organUpdate(ChestCavityInstance cc){
-        Map<Identifier,Float> organScores = cc.getOrganScores();
-        if(!cc.oldOrganScores.equals(organScores))
-        {
-            if(ChestCavity.DEBUG_MODE && cc.owner instanceof PlayerEntity) {
-                ChestCavityUtil.outputOrganScoresString(System.out::println,cc);
-            }
-            OrganUpdateCallback.EVENT.invoker().onOrganUpdate(cc.owner, cc);
-            cc.oldOrganScores.clear();
-            cc.oldOrganScores.putAll(organScores);
-            NetworkUtil.SendS2CChestCavityUpdatePacket(cc);
-        }
-    }*/
-
-    /*public static void TickNerveFallDown(LivingEntity entity, ChestCavityInstance chestCavity) {
-        float nerves = chestCavity.getOrganScore(CCOrganScores.NERVES);
-        float defnerves = chestCavity.getChestCavityType().getDefaultOrganScore(CCOrganScores.NERVES);
-        if (nerves <= 0 && defnerves > 0 && entity instanceof PlayerEntity player) {
-            entity.setPose(EntityPose.SWIMMING);
-            player.setBoundingBox(entity.getBoundingBox(EntityPose.SWIMMING));
-        }
-        else {
-            entity.shouldLeaveSwimmingPose();
-        }
-    }*/
 }

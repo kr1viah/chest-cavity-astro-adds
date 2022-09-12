@@ -115,6 +115,8 @@ public class CCAAItems {
 
     public static final Item BENIGN_TUMOR = registerItem("benign_tumor",
             new Item(new FabricItemSettings().group(CCAstroAdds.ORGAN_ITEM_GROUP).maxCount(1)));
+    public static final Item AUTOPHAGY_TUMOR = registerItem("autophagy_tumor",
+            new Item(new FabricItemSettings().group(CCAstroAdds.ORGAN_ITEM_GROUP).maxCount(1)));
     public static final Item STEM_CELL_CANISTER = registerItem("stem_cell_canister",
             new Item(new FabricItemSettings().group(CCAstroAdds.ORGAN_ITEM_GROUP).maxCount(1)));
 
