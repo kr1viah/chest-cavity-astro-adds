@@ -7,6 +7,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.math.MathHelper;
 import net.tigereye.chestcavity.ChestCavity;
@@ -81,7 +82,7 @@ public class CCAAOrganTickListeners {
                 ItemStack organDefault = def.getStack(i);
                 organDefault.setCount(organDefault.getMaxCount());
                 if (organHas.isEmpty()) {
-                    if (organDefault.isEmpty() || entity.getRandom().nextFloat() <= 0.25) {
+                    if (organDefault.isEmpty() || entity.getRandom().nextFloat() <= 0.25 || organDefault.getItem() == Items.DIRT) {
                         organDefault = CCAAItems.BENIGN_TUMOR.getDefaultStack();
                     }
                     if (!organDefault.isEmpty() && !(entity instanceof PlayerEntity)) {
