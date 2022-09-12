@@ -1,38 +1,19 @@
 package net.astrospud.ccastroadds.specials;
 
-import com.mojang.datafixers.util.Pair;
-import it.unimi.dsi.fastutil.objects.ObjectArrayList;
-import it.unimi.dsi.fastutil.objects.ObjectListIterator;
-import net.minecraft.block.AbstractFireBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.enchantment.ProtectionEnchantment;
 import net.minecraft.entity.*;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.loot.context.LootContext;
-import net.minecraft.loot.context.LootContextParameters;
-import net.minecraft.particle.ParticleTypes;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.Util;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 import org.jetbrains.annotations.Nullable;
 
 
-import java.lang.reflect.Field;
 import java.util.List;
 
-public class AmethystExplosion extends Explosion {
+public class SafeExplosion extends Explosion {
     private double x;
     private double y;
     private double z;
@@ -41,7 +22,7 @@ public class AmethystExplosion extends Explosion {
 
     private World privateWorld = null;
 
-    public AmethystExplosion(World world, @Nullable Entity entity, double px, double py, double pz, float ppower) {
+    public SafeExplosion(World world, @Nullable Entity entity, double px, double py, double pz, float ppower) {
         super(world, entity, px, py, pz, ppower);
         privateWorld = world;
         x=px;

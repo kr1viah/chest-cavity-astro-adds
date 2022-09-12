@@ -2,27 +2,19 @@ package net.astrospud.ccastroadds.listeners;
 
 import net.astrospud.ccastroadds.registration.CCAAOrganScores;
 import net.astrospud.ccastroadds.registration.CCAAStatusEffects;
-import net.astrospud.ccastroadds.specials.AmethystExplosion;
+import net.astrospud.ccastroadds.specials.SafeExplosion;
 import net.astrospud.ccastroadds.specials.ClusterExplosion;
 import net.astrospud.ccastroadds.specials.ShriekerExplosion;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.player.PlayerAbilities;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.Position;
 import net.minecraft.world.World;
-import net.tigereye.chestcavity.ChestCavity;
 import net.tigereye.chestcavity.chestcavities.instance.ChestCavityInstance;
 import net.tigereye.chestcavity.interfaces.ChestCavityEntity;
 import net.tigereye.chestcavity.listeners.OrganOnHitCallback;
-import net.tigereye.chestcavity.listeners.OrganOnHitListeners;
-import net.tigereye.chestcavity.listeners.OrganTickCallback;
-import net.tigereye.chestcavity.registration.CCOrganScores;
 
 public class CCAAOrganOnHitListeners {
     public static void register(){
@@ -61,7 +53,7 @@ public class CCAAOrganOnHitListeners {
             float power = 5;
             World entityWorld = entity.getWorld();
 
-            AmethystExplosion explosion = new AmethystExplosion(entityWorld, entity, x, y, z, power);
+            SafeExplosion explosion = new SafeExplosion(entityWorld, entity, x, y, z, power);
             explosion.collectBlocksAndDamageEntities();
             if (!entityWorld.isClient) {
                 float rand = entityWorld.random.nextFloat() * 1.2F;

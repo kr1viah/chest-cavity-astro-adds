@@ -1,41 +1,18 @@
 package net.astrospud.ccastroadds.listeners;
 
+import net.astrospud.ccastroadds.CCAstroAdds;
 import net.astrospud.ccastroadds.registration.CCAAItems;
 import net.astrospud.ccastroadds.registration.CCAAOrganScores;
-import net.astrospud.ccastroadds.registration.CCAAStatusEffects;
-import net.astrospud.ccastroadds.specials.AmethystExplosion;
-import net.fabricmc.loader.api.metadata.version.VersionPredicate;
-import net.minecraft.client.item.ModelPredicateProviderRegistry;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityPose;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.player.PlayerAbilities;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.math.Position;
-import net.minecraft.world.World;
-import net.minecraft.world.gen.stateprovider.PredicatedStateProvider;
+import net.minecraft.util.math.MathHelper;
 import net.tigereye.chestcavity.ChestCavity;
 import net.tigereye.chestcavity.chestcavities.ChestCavityInventory;
 import net.tigereye.chestcavity.chestcavities.instance.ChestCavityInstance;
 import net.tigereye.chestcavity.listeners.OrganTickCallback;
-import net.tigereye.chestcavity.listeners.OrganUpdateCallback;
-import net.tigereye.chestcavity.registration.CCOrganScores;
-import net.tigereye.chestcavity.util.ChestCavityUtil;
-import net.tigereye.chestcavity.util.NetworkUtil;
-import net.tigereye.chestcavity.util.OrganUtil;
-import org.spongepowered.include.com.google.common.base.Predicates;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 public class CCAAOrganTickListeners {
 
@@ -91,30 +68,31 @@ public class CCAAOrganTickListeners {
 
     public static void TickRegrowth(LivingEntity entity, ChestCavityInstance cc){
         float growth = cc.getOrganScore(CCAAOrganScores.REGROWTH) - cc.getChestCavityType().getDefaultOrganScore(CCAAOrganScores.REGROWTH);
-        if (growth <= 0) {
+        //int cooldown = CCAstroAdds.config.REGROWTH_COOLDOWN;
+        //int cooldown = 20;
+        if (growth <= 0 || !(entity.world.getTime() % CCAstroAdds.config.REGROWTH_COOLDOWN == 0)) {
             return;
         }
         ChestCavityInventory def = cc.getChestCavityType().getDefaultChestCavity();
 
-        for (int i = 0; i < def.size(); i++) {
-            ItemStack organHas = cc.inventory.getStack(i);
-            ItemStack organDefault = def.getStack(i);
-            organDefault.setCount(1);
-            /*if (!organDefault.isEmpty() && organHas.getItem() == organDefault.getItem() && organHas.getCount() < organDefault.getMaxCount()) {
-                organDefault.setCount(organHas.getCount()+1);
-                cc.inventory.setStack(i, organDefault);
-                return;
-            }*/
-            if (organHas.isEmpty()) {
-                if (organDefault.isEmpty() /*|| entity.getRandom().nextFloat() <= 0.25*/) {
-                    organDefault = CCAAItems.BENIGN_TUMOR.getDefaultStack();
+        for (int g = 0; g < growth; g++) {
+            for (int i = 0; i < def.size(); i++) {
+                ItemStack organHas = cc.inventory.getStack(i);
+                ItemStack organDefault = def.getStack(i);
+                organDefault.setCount(organDefault.getMaxCount());
+                if (organHas.isEmpty()) {
+                    if (organDefault.isEmpty() || entity.getRandom().nextFloat() <= 0.25) {
+                        organDefault = CCAAItems.BENIGN_TUMOR.getDefaultStack();
+                    }
+                    if (!organDefault.isEmpty() && !(entity instanceof PlayerEntity)) {
+                        NbtCompound tag = new NbtCompound();
+                        tag.putUuid("owner", cc.compatibility_id);
+                        tag.putString("name", cc.owner.getDisplayName().getString());
+                        organDefault.setSubNbt(ChestCavity.COMPATIBILITY_TAG.toString(), tag);
+                    }
+                    cc.inventory.setStack(i, organDefault);
+                    break;
                 }
-                cc.inventory.setStack(i, organDefault);
-                return;
-            } else if (organHas.getItem() == organDefault.getItem() && organHas.getCount() < organHas.getMaxCount()) {
-                organHas.increment(1);
-                cc.inventory.setStack(i, organHas);
-                return;
             }
         }
     }
