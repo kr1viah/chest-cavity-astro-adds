@@ -3,7 +3,6 @@ package net.astrospud.ccastroadds.util;
 import net.astrospud.ccastroadds.registration.CCAAItems;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -13,8 +12,12 @@ import net.tigereye.chestcavity.ChestCavity;
 import net.tigereye.chestcavity.chestcavities.ChestCavityInventory;
 import net.tigereye.chestcavity.chestcavities.instance.ChestCavityInstance;
 
+import java.util.List;
+
 public class AstralCavityUtil {
-    static Item[] tumors = {CCAAItems.BENIGN_TUMOR, CCAAItems.AUTOPHAGY_TUMOR};
+    static Item[] growable_tumors = {CCAAItems.BENIGN_TUMOR, CCAAItems.AUTOPHAGY_TUMOR};
+    static List<Item> infectable_tumors = List.of(new Item[]{CCAAItems.BENIGN_TUMOR, CCAAItems.AUTOPHAGY_TUMOR});
+    static List<Item> harmful_tumors = List.of(new Item[]{CCAAItems.AUTOPHAGY_TUMOR, CCAAItems.SCULK_TUMOR});
 
     public static void growBackOrgans(LivingEntity entity, ChestCavityInstance cc, float count) {
         count = MathHelper.ceil(count);
@@ -49,7 +52,7 @@ public class AstralCavityUtil {
         }
     }
 
-    public static void eatOrgans(LivingEntity entity, ChestCavityInstance cc, float count) {
+    public static void eatOrgans(LivingEntity entity, ChestCavityInstance cc, float count, boolean tumorous) {
         count = MathHelper.ceil(count);
         ChestCavityInventory def = cc.getChestCavityType().getDefaultChestCavity();
         for (int i = 0; i < def.size() && count > 0; i++) {
@@ -60,14 +63,14 @@ public class AstralCavityUtil {
                     if (entity instanceof PlayerEntity player && player.getHungerManager().isNotFull()) {
                        player.eatFood(player.getWorld(), organHas);
                         //organHas.decrement(1);
-                        if (organHas.getCount() <= 0 || organHas.isEmpty()) {
-                            organHas = CCAAItems.AUTOPHAGY_TUMOR.getDefaultStack();
+                        if (tumorous && organHas.getCount() <= 0 || organHas.isEmpty() && entity.getRandom().nextFloat() <= 0.5) {
+                            organHas = getTumor(entity);
                         }
                         cc.inventory.setStack(i, organHas);
                     } else if (entity.getHealth() < entity.getMaxHealth()){
                         entity.heal(1);
                         organHas.decrement(1);
-                        if (organHas.getCount() <= 0 || organHas.isEmpty() && entity.getRandom().nextFloat() <= 0.5) {
+                        if (tumorous && organHas.getCount() <= 0 || organHas.isEmpty() && entity.getRandom().nextFloat() <= 0.5) {
                             organHas = getTumor(entity);
                         }
                         cc.inventory.setStack(i, organHas);
@@ -78,7 +81,36 @@ public class AstralCavityUtil {
         }
     }
 
+    public static void huntTumors(LivingEntity entity, ChestCavityInstance cc, float count) {
+        count = MathHelper.ceil(count);
+        ChestCavityInventory def = cc.getChestCavityType().getDefaultChestCavity();
+        for (int i = 0; i < def.size() && count > 0; i++) {
+            ItemStack organHas = cc.inventory.getStack(i);
+            if (harmful_tumors.contains(organHas.getItem())) {
+                organHas = ItemStack.EMPTY;
+                cc.inventory.setStack(i, organHas);
+                count--;
+            }
+        }
+    }
+
+    public static void infectOrgans(LivingEntity entity, ChestCavityInstance cc, float count) {
+        count = MathHelper.ceil(count);
+        ChestCavityInventory def = cc.getChestCavityType().getDefaultChestCavity();
+        for (int i = 0; i < def.size() && count > 0; i++) {
+            ItemStack organHas = cc.inventory.getStack(i);
+            if (organHas.isFood() || infectable_tumors.contains(organHas.getItem())) {
+                //FoodComponent food = organHas.getItem().getFoodComponent();
+                for (int g = 0; g < organHas.getCount() && count > 0; g++) {
+                    organHas = CCAAItems.SCULK_TUMOR.getDefaultStack();
+                    cc.inventory.setStack(i, organHas);
+                    count--;
+                }
+            }
+        }
+    }
+
     public static ItemStack getTumor(LivingEntity entity) {
-        return tumors[entity.getRandom().nextInt(tumors.length)].getDefaultStack();
+        return growable_tumors[entity.getRandom().nextInt(growable_tumors.length)].getDefaultStack();
     }
 }

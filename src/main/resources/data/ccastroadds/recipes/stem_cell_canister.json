@@ -1,28 +1,21 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "iGi",
-    "ICI",
-    "ibi"
-  ],
-  "key": {
-    "G": {
-      "item": "minecraft:glass_pane"
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ccastroadds:empty_canister"
     },
-    "i": {
-      "item": "minecraft:iron_nugget"
-    },
-    "I": {
-      "item": "minecraft:iron_ingot"
-    },
-    "C": [
-      {"item": "chestcavity:liver"},
-      {"item": "chestcavity:animal_liver"}
+    [
+      {
+        "item": "chestcavity:liver"
+      },
+      {
+        "item": "chestcavity:animal_liver"
+      }
     ],
-    "b": {
+    {
       "item": "minecraft:bone_meal"
     }
-  },
+  ],
   "result": {
     "item": "ccastroadds:stem_cell_canister"
   }

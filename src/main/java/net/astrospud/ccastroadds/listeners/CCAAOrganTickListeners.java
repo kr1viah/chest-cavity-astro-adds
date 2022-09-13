@@ -1,18 +1,12 @@
 package net.astrospud.ccastroadds.listeners;
 
 import net.astrospud.ccastroadds.CCAstroAdds;
-import net.astrospud.ccastroadds.registration.CCAAItems;
 import net.astrospud.ccastroadds.registration.CCAAOrganScores;
 import net.astrospud.ccastroadds.util.AstralCavityUtil;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.math.MathHelper;
-import net.tigereye.chestcavity.ChestCavity;
-import net.tigereye.chestcavity.chestcavities.ChestCavityInventory;
 import net.tigereye.chestcavity.chestcavities.instance.ChestCavityInstance;
 import net.tigereye.chestcavity.listeners.OrganTickCallback;
 
@@ -21,9 +15,9 @@ public class CCAAOrganTickListeners {
         OrganTickCallback.EVENT.register(CCAAOrganTickListeners::TickNeutralWaterBuoyant);
         OrganTickCallback.EVENT.register(CCAAOrganTickListeners::TickFlight);
         OrganTickCallback.EVENT.register(CCAAOrganTickListeners::TickRegrowth);
-        OrganTickCallback.EVENT.register(CCAAOrganTickListeners::TickAutophagy);
-//OrganTickCallback.EVENT.register(CCAAOrganTickListeners::TickPlexis);
-        //OrganTickCallback.EVENT.register(CCAAOrganTickListeners::TickNerveFallDown);
+        OrganTickCallback.EVENT.register(CCAAOrganTickListeners::TickTumorAutophagy);
+        OrganTickCallback.EVENT.register(CCAAOrganTickListeners::TickTumorHunt);
+        OrganTickCallback.EVENT.register(CCAAOrganTickListeners::TickSculkInfection);
     }
 
     public static void TickNeutralWaterBuoyant(LivingEntity entity, ChestCavityInstance chestCavity){
@@ -78,13 +72,33 @@ public class CCAAOrganTickListeners {
         AstralCavityUtil.growBackOrgans(entity, cc, growth);
     }
 
-    public static void TickAutophagy(LivingEntity entity, ChestCavityInstance cc){
-        float autophagy = MathHelper.ceil(cc.getOrganScore(CCAAOrganScores.AUTOPHAGY));
+    public static void TickTumorAutophagy(LivingEntity entity, ChestCavityInstance cc){
+        float autophagy = MathHelper.ceil(cc.getOrganScore(CCAAOrganScores.TUMOR_AUTOPHAGY));
 
         if (autophagy <= 0 || entity.age % CCAstroAdds.config.AUTOPHAGY_COOLDOWN != 0) {
             return;
         }
 
-        AstralCavityUtil.eatOrgans(entity, cc, autophagy);
+        AstralCavityUtil.eatOrgans(entity, cc, autophagy, true);
+    }
+
+    public static void TickTumorHunt(LivingEntity entity, ChestCavityInstance cc){
+        float hunting = MathHelper.ceil(cc.getOrganScore(CCAAOrganScores.TUMOR_HUNTING));
+
+        if (hunting <= 0 || entity.age % CCAstroAdds.config.TUMOR_HUNTING_COOLDOWN != 0) {
+            return;
+        }
+
+        AstralCavityUtil.huntTumors(entity, cc, hunting);
+    }
+
+    public static void TickSculkInfection(LivingEntity entity, ChestCavityInstance cc){
+        float sculk_infection = MathHelper.ceil(cc.getOrganScore(CCAAOrganScores.SCULK_INFECTION));
+
+        if (sculk_infection <= 0 || entity.age % CCAstroAdds.config.SCULK_INFECTION_COOLDOWN != 0) {
+            return;
+        }
+
+        AstralCavityUtil.infectOrgans(entity, cc, sculk_infection);
     }
 }

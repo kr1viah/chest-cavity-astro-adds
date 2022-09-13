@@ -1,0 +1,8 @@
+{
+  "itemID": "ccastroadds:sculk_tumor",
+  "organScores": [
+    {"id":"chestcavity:metabolism","value": "-0.25"},
+    {"id":"chestcavity:strength","value": "1"},
+    {"id":"ccastroadds:sculk_infection","value": "1"}
+  ]
+}

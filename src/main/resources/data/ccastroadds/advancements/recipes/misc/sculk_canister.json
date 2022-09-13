@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ccastroadds:stem_cell_canister"
+        "recipe": "ccastroadds:sculk_canister"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "ccastroadds:stem_cell_canister"
+      "ccastroadds:sculk_canister"
     ]
   }
 }

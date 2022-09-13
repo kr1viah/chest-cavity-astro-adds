@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_empty_canister": {
+    "has_iron_ingot": {
       "conditions": {
         "items": [
           {
             "items": [
-              "ccastroadds:empty_canister"
+              "minecraft:iron_ingot"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ccastroadds:stem_cell_canister"
+        "recipe": "ccastroadds:empty_canister"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_empty_canister",
+      "has_iron_ingot",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "ccastroadds:stem_cell_canister"
+      "ccastroadds:empty_canister"
     ]
   }
 }

@@ -1,0 +1,7 @@
+{
+  "itemID": "ccastroadds:nanobot_canister",
+  "organScores": [
+    {"id":"chestcavity:endurance","value": "-0.5"},
+    {"id":"ccastroadds:tumor_hunting","value": "1"}
+  ]
+}

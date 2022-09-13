@@ -53,7 +53,11 @@
 
   "item.ccastroadds.benign_tumor" : "Benign Tumor",
   "item.ccastroadds.autophagy_tumor" : "Autophagy Tumor",
+  "item.ccastroadds.sculk_tumor" : "Sculk Tumor",
+  "item.ccastroadds.empty_canister" : "Empty Canister",
   "item.ccastroadds.stem_cell_canister" : "Stem Cell Canister",
+  "item.ccastroadds.nanobot_canister" : "Nanobot Canister",
+  "item.ccastroadds.sculk_canister" : "Sculk Canister",
 
   "item.ccastroadds.draconis_fundamentum" : "Draconis Fundamentum",
 
@@ -74,7 +78,9 @@
   "organscore.ccastroadds.iron_gut": "%sIron Gut",
   "organscore.ccastroadds.eat_the_rich": "%sBlock Rumination",
   "organscore.ccastroadds.regrowth": "Organ Regrowth",
-  "organscore.ccastroadds.autophagy": "Autophagy",
+  "organscore.ccastroadds.tumor_autophagy": "Tumorous Autophagy",
+  "organscore.ccastroadds.tumor_hunting": "Tumor Hunting",
+  "organscore.ccastroadds.sculk_infection": "Sculk Infection",
 
   "effect.ccastroadds.resonance_cooldown": "Resonance Cooldown",
   "effect.ccastroadds.shrieking_cooldown": "Shrieking Cooldown",

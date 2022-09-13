@@ -1,0 +1,7 @@
+{
+  "itemID": "ccastroadds:sculk_canister",
+  "organScores": [
+    {"id":"chestcavity:metabolism","value": "1.5"},
+    {"id":"ccastroadds:sculk_infection","value": "1"}
+  ]
+}
