@@ -14,6 +14,8 @@ import net.tigereye.chestcavity.chestcavities.ChestCavityInventory;
 import net.tigereye.chestcavity.chestcavities.instance.ChestCavityInstance;
 
 public class AstralCavityUtil {
+    static Item[] tumors = {CCAAItems.BENIGN_TUMOR, CCAAItems.AUTOPHAGY_TUMOR};
+
     public static void growBackOrgans(LivingEntity entity, ChestCavityInstance cc, float count) {
         count = MathHelper.ceil(count);
         ChestCavityInventory def = cc.getChestCavityType().getDefaultChestCavity();
@@ -23,15 +25,17 @@ public class AstralCavityUtil {
             organDefault.setCount(organDefault.getMaxCount());
             if (organHas.isEmpty()) {
                 if (organDefault.isEmpty() || entity.getRandom().nextFloat() <= 0.25 || organDefault.getItem() == Items.DIRT) {
-                    Item[] tumors = {CCAAItems.BENIGN_TUMOR, CCAAItems.AUTOPHAGY_TUMOR};
-                    organDefault = tumors[entity.getRandom().nextInt(tumors.length-1)].getDefaultStack();
+                    organDefault = getTumor(entity);
+                    organDefault.setCount(organDefault.getMaxCount());
                 }
                 if (!organDefault.isEmpty() && !(entity instanceof PlayerEntity)) {
                     NbtCompound tag = new NbtCompound();
                     tag.putUuid("owner", cc.compatibility_id);
                     tag.putString("name", cc.owner.getDisplayName().getString());
                     organDefault.setSubNbt(ChestCavity.COMPATIBILITY_TAG.toString(), tag);
+                    organDefault.setCount(organDefault.getMaxCount());
                 }
+                organDefault.setCount(organDefault.getMaxCount());
                 cc.inventory.setStack(i, organDefault);
                 if (entity instanceof PlayerEntity player) {
                     if (organDefault.isFood() && organDefault.getItem().getFoodComponent() != null) {
@@ -53,20 +57,28 @@ public class AstralCavityUtil {
             if (organHas.isFood()) {
                 //FoodComponent food = organHas.getItem().getFoodComponent();
                 for (int g = 0; g < organHas.getCount() && count > 0; g++) {
-                    if (entity instanceof PlayerEntity player) {
-                        if (player.getHungerManager().isNotFull()) {
-                            player.eatFood(player.getWorld(), organHas);
-                            organHas.decrement(1);
-                            cc.inventory.setStack(i, organHas);
+                    if (entity instanceof PlayerEntity player && player.getHungerManager().isNotFull()) {
+                       player.eatFood(player.getWorld(), organHas);
+                        //organHas.decrement(1);
+                        if (organHas.getCount() <= 0 || organHas.isEmpty()) {
+                            organHas = CCAAItems.AUTOPHAGY_TUMOR.getDefaultStack();
                         }
-                    } else {
+                        cc.inventory.setStack(i, organHas);
+                    } else if (entity.getHealth() < entity.getMaxHealth()){
                         entity.heal(1);
                         organHas.decrement(1);
+                        if (organHas.getCount() <= 0 || organHas.isEmpty()) {
+                            organHas = getTumor(entity);
+                        }
                         cc.inventory.setStack(i, organHas);
                     }
                     count--;
                 }
             }
         }
+    }
+
+    public static ItemStack getTumor(LivingEntity entity) {
+        return tumors[entity.getRandom().nextInt(tumors.length)].getDefaultStack();
     }
 }
