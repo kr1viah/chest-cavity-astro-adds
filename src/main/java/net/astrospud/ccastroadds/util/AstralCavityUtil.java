@@ -67,7 +67,7 @@ public class AstralCavityUtil {
                     } else if (entity.getHealth() < entity.getMaxHealth()){
                         entity.heal(1);
                         organHas.decrement(1);
-                        if (organHas.getCount() <= 0 || organHas.isEmpty()) {
+                        if (organHas.getCount() <= 0 || organHas.isEmpty() && entity.getRandom().nextFloat() <= 0.5) {
                             organHas = getTumor(entity);
                         }
                         cc.inventory.setStack(i, organHas);
