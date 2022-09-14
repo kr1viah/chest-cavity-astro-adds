@@ -1,6 +1,7 @@
 package net.astrospud.ccastroadds.util;
 
 import net.astrospud.ccastroadds.registration.CCAAItems;
+import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -106,6 +107,20 @@ public class AstralCavityUtil {
                     cc.inventory.setStack(i, organHas);
                     count--;
                 }
+            }
+        }
+    }
+
+    public static void dropOrgans(LivingEntity entity, ChestCavityInstance cc, float count) {
+        count = MathHelper.ceil(count);
+        ChestCavityInventory def = cc.getChestCavityType().getDefaultChestCavity();
+        for (int i = 0; i < def.size() && count > 0; i++) {
+            ItemStack organHas = cc.inventory.getStack(i);
+            if (!organHas.isEmpty()) {
+                cc.inventory.setStack(i, ItemStack.EMPTY);
+                ItemEntity e = new ItemEntity(entity.world, entity.getX(), entity.getY(), entity.getZ(), organHas);
+                entity.world.spawnEntity(e);
+                count--;
             }
         }
     }
