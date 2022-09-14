@@ -47,7 +47,7 @@ public class ChestOpenerDispenserBehavior extends ItemDispenserBehavior {
         for (LivingEntity livingEntity : list) {
             /*if (livingEntity instanceof PlayerEntity player && CCRequiem.REQUIEM_ACTIVE) {
                 livingEntity = PossessionComponent.getHost(player);
-            }*///damn requiem users
+            }*///damn requiem users to heck
             if (openChestCavity(livingEntity)) {
                 ChestCavityEntity ccE = (ChestCavityEntity) livingEntity;
                 AstralCavityUtil.dropOrgans(livingEntity, ccE.getChestCavityInstance(), 1);
