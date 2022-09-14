@@ -3,17 +3,23 @@ package net.astrospud.ccastroadds.util;
 import net.astrospud.ccastroadds.registration.CCAAItems;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.MathHelper;
 import net.tigereye.chestcavity.ChestCavity;
 import net.tigereye.chestcavity.chestcavities.ChestCavityInventory;
 import net.tigereye.chestcavity.chestcavities.instance.ChestCavityInstance;
 
 import java.util.List;
+import java.util.Map;
 
 public class AstralCavityUtil {
     static Item[] growable_tumors = {CCAAItems.BENIGN_TUMOR, CCAAItems.AUTOPHAGY_TUMOR};
@@ -43,7 +49,7 @@ public class AstralCavityUtil {
                 cc.inventory.setStack(i, organDefault);
                 if (entity instanceof PlayerEntity player) {
                     if (organDefault.isFood() && organDefault.getItem().getFoodComponent() != null) {
-                        player.addExhaustion(organDefault.getItem().getFoodComponent().getHunger()+organDefault.getItem().getFoodComponent().getSaturationModifier());
+                        player.addExhaustion((0.25f*organDefault.getCount())*(organDefault.getItem().getFoodComponent().getHunger()+organDefault.getItem().getFoodComponent().getSaturationModifier()));
                     } else {
                         player.addExhaustion(0.25f);
                     }
@@ -68,6 +74,7 @@ public class AstralCavityUtil {
                             organHas = getTumor(entity);
                         }
                         cc.inventory.setStack(i, organHas);
+                        count--;
                     } else if (entity.getHealth() < entity.getMaxHealth()){
                         entity.heal(1);
                         organHas.decrement(1);
@@ -75,8 +82,8 @@ public class AstralCavityUtil {
                             organHas = getTumor(entity);
                         }
                         cc.inventory.setStack(i, organHas);
+                        count--;
                     }
-                    count--;
                 }
             }
         }
@@ -107,6 +114,33 @@ public class AstralCavityUtil {
                     cc.inventory.setStack(i, organHas);
                     count--;
                 }
+            }
+        }
+    }
+
+    public static void drinkMilk(LivingEntity entity, ChestCavityInstance cc) {
+        ChestCavityInventory def = cc.getChestCavityType().getDefaultChestCavity();
+        for (int i = 0; i < def.size(); i++) {
+            ItemStack organHas = cc.inventory.getStack(i);
+            List<StatusEffect> effects = entity.getActiveStatusEffects().keySet().stream().toList();
+            boolean drink = false;
+            for (StatusEffect e : effects) {
+                if (e.getCategory() == StatusEffectCategory.HARMFUL) {
+                    drink = true;
+                    break;
+                }
+            }
+            if (organHas.getItem() == Items.MILK_BUCKET && drink) {
+                organHas = Items.BUCKET.getDefaultStack();
+                organHas.setCount(1);
+                entity.playSound(SoundEvents.ENTITY_GENERIC_DRINK, 1, 1);
+                cc.inventory.setStack(i, organHas);
+                for (StatusEffect e : effects) {
+                    if (e.getCategory() == StatusEffectCategory.HARMFUL) {
+                        entity.removeStatusEffect(e);
+                    }
+                }
+                break;
             }
         }
     }

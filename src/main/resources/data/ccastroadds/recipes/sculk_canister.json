@@ -4,15 +4,30 @@
     {
       "item": "ccastroadds:stem_cell_canister"
     },
-    {
-      "item": "minecraft:sculk_catalyst"
-    },
-    {
-      "item": "minecraft:echo_shard"
-    },
-    {
-      "item": "minecraft:echo_shard"
-    }
+    [
+      {
+        "item": "minecraft:sculk_catalyst"
+      },
+      {
+        "item": "ccastroadds:sculk_tumor"
+      }
+    ],
+    [
+      {
+        "item": "minecraft:echo_shard"
+      },
+      {
+        "item": "ccastroadds:sculk_tumor"
+      }
+    ],
+    [
+      {
+        "item": "minecraft:echo_shard"
+      },
+      {
+        "item": "ccastroadds:sculk_tumor"
+      }
+    ]
   ],
   "result": {
     "item": "ccastroadds:sculk_canister"

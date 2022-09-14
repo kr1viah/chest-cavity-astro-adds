@@ -4,6 +4,7 @@ import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.astrospud.ccastroadds.config.CCAAConfig;
 import net.astrospud.ccastroadds.listeners.CCAAOrganFoodEffectListeners;
+import net.astrospud.ccastroadds.listeners.CCAAOrganOnDamageListeners;
 import net.astrospud.ccastroadds.listeners.CCAAOrganOnHitListeners;
 import net.astrospud.ccastroadds.listeners.CCAAOrganTickListeners;
 import net.astrospud.ccastroadds.registration.CCAADispenserBehaviors;
@@ -37,6 +38,7 @@ public class CCAstroAdds implements ModInitializer {
 
 		CCAAItems.registerModItems();
 		CCAAOrganTickListeners.register();
+		CCAAOrganOnDamageListeners.register();
 		CCAADispenserBehaviors.register();
 		CCAAOrganOnHitListeners.register();
 		CCAAOrganFoodEffectListeners.register();

@@ -1,6 +1,7 @@
 package net.astrospud.ccastroadds.mixin;
 
 import net.astrospud.ccastroadds.listeners.CCAAOrganOnHitListeners;
+import net.astrospud.ccastroadds.listeners.OrganOnDamageCallback;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityPose;
 import net.minecraft.entity.EntityType;
@@ -35,7 +36,7 @@ public abstract class CCAALivingEntityMixin extends Entity implements ChestCavit
 	@Inject(at = @At("RETURN"), method = "damage")
 	private void ccaaDamageMixin(DamageSource source, float amount, CallbackInfoReturnable<Boolean> info) {
 		if (info.getReturnValue()) {
-			CCAAOrganOnHitListeners.TickPanic((LivingEntity) (Object) this);
+			OrganOnDamageCallback.EVENT.invoker().onDamage((LivingEntity)(Object)this, source, amount);
 		}
 	}
 

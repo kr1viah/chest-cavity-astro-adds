@@ -10,9 +10,9 @@ public class CCAAConfig implements ConfigData {
     @ConfigEntry.Category("cooldown")
     public int REGROWTH_COOLDOWN = 400; //how often an entity regrows their organs when using 1 stem cell canister, in ticks
     @ConfigEntry.Category("cooldown")
-    public int AUTOPHAGY_COOLDOWN = 450; //how often an entity eats their organs when using 1 harmful tumor, in ticks
+    public int AUTOPHAGY_COOLDOWN = 450; //how often an entity eats their organs when using 1 autophagy organ, in ticks
     @ConfigEntry.Category("cooldown")
-    public int SCULK_INFECTION_COOLDOWN = 500; //how often an entity eats their organs when using 1 harmful tumor, in ticks
+    public int SCULK_INFECTION_COOLDOWN = 500; //how often the sculk infection spreads, in ticks
     @ConfigEntry.Category("cooldown")
-    public int TUMOR_HUNTING_COOLDOWN = 250; //how often an entity eats their organs when using 1 harmful tumor, in ticks
+    public int TUMOR_HUNTING_COOLDOWN = 250; //how often a nano bot canister removes harmful tumors, in ticks
 }

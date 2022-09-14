@@ -6,6 +6,7 @@ import net.astrospud.ccastroadds.specials.SafeExplosion;
 import net.astrospud.ccastroadds.specials.ClusterExplosion;
 import net.astrospud.ccastroadds.specials.ShriekerExplosion;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.sound.SoundCategory;
@@ -24,15 +25,7 @@ public class CCAAOrganOnHitListeners {
         OrganOnHitCallback.EVENT.register(CCAAOrganOnHitListeners::TickClusterExplode);
     }
 
-    public static void TickPanic(LivingEntity entity){
-        if (!(entity instanceof ChestCavityEntity)) { return; }
-        ChestCavityInstance cc = ((ChestCavityEntity)entity).getChestCavityInstance();
-        float panic = cc.getOrganScore(CCAAOrganScores.PANIC) - cc.getChestCavityType().getDefaultOrganScore(CCAAOrganScores.PANIC);
-        if (panic <= 0 || entity.hasStatusEffect(CCAAStatusEffects.PANIC)) { return; }
-        int power = (int) Math.floor(2 * Math.log10((panic) + 1));
-        int duration = (int)(100 * Math.log10(2*panic -1))+100;
-        entity.addStatusEffect(new StatusEffectInstance(CCAAStatusEffects.PANIC, duration, power, false, true, true));
-    }
+
 
     public static void TickResonance(LivingEntity attacker, LivingEntity entity, ChestCavityInstance notused){
         if (!(entity instanceof ChestCavityEntity)) { return; }

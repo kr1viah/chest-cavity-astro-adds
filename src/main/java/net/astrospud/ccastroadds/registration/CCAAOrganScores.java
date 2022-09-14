@@ -18,4 +18,5 @@ public class CCAAOrganScores extends CCOrganScores {
     public static final Identifier TUMOR_AUTOPHAGY = new Identifier(CCAstroAdds.MOD_ID, "tumor_autophagy");
     public static final Identifier TUMOR_HUNTING = new Identifier(CCAstroAdds.MOD_ID, "tumor_hunting");
     public static final Identifier SCULK_INFECTION = new Identifier(CCAstroAdds.MOD_ID, "sculk_infection");
+    public static final Identifier AUTOPHAGY = new Identifier(CCAstroAdds.MOD_ID, "autophagy");
 }

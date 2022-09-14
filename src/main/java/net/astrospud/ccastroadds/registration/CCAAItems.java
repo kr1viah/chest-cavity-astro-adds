@@ -121,6 +121,9 @@ public class CCAAItems {
     public static final Item SCULK_TUMOR = registerItem("sculk_tumor",
             new Item(new FabricItemSettings().group(CCAstroAdds.ORGAN_ITEM_GROUP).maxCount(1)));
 
+    public static final Item AUTOPHAGY_STOMACH = registerItem("autophagy_stomach",
+            new Item(new FabricItemSettings().group(CCAstroAdds.ORGAN_ITEM_GROUP).maxCount(1)));
+
     public static final Item EMPTY_CANISTER = registerItem("empty_canister",
             new Item(new FabricItemSettings().group(ItemGroup.MATERIALS).maxCount(16)));
     public static final Item STEM_CELL_CANISTER = registerItem("stem_cell_canister",

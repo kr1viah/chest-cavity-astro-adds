@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " E ",
+    "EHE",
+    " E "
+  ],
+  "key": {
+    "E": {
+      "item": "ccastroadds:autophagy_tumor"
+    },
+    "H": {
+      "item": "chestcavity:stomach"
+    }
+  },
+  "result": {
+    "item": "ccastroadds:autophagy_stomach"
+  }
+}

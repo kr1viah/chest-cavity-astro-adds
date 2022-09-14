@@ -1,0 +1,7 @@
+{
+  "itemID": "ccastroadds:autophagy_stomach",
+  "organScores": [
+    {"id":"chestcavity:digestion","value": "0.75"},
+    {"id":"ccastroadds:autophagy","value": "1"}
+  ]
+}

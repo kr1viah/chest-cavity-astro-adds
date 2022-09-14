@@ -59,6 +59,8 @@
   "item.ccastroadds.nanobot_canister" : "Nanobot Canister",
   "item.ccastroadds.sculk_canister" : "Sculk Canister",
 
+  "item.ccastroadds.autophagy_stomach" : "Autophagy Stomach",
+
   "item.ccastroadds.draconis_fundamentum" : "Draconis Fundamentum",
 
   "item.ccastroadds.cluster_bomb" : "Cluster Bomb",
@@ -81,6 +83,7 @@
   "organscore.ccastroadds.tumor_autophagy": "Tumorous Autophagy",
   "organscore.ccastroadds.tumor_hunting": "Tumor Hunting",
   "organscore.ccastroadds.sculk_infection": "Sculk Infection",
+  "organscore.ccastroadds.autophagy": "Autophagy",
 
   "effect.ccastroadds.resonance_cooldown": "Resonance Cooldown",
   "effect.ccastroadds.shrieking_cooldown": "Shrieking Cooldown",

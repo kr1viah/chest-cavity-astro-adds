@@ -18,6 +18,7 @@ public class CCAAOrganTickListeners {
         OrganTickCallback.EVENT.register(CCAAOrganTickListeners::TickTumorAutophagy);
         OrganTickCallback.EVENT.register(CCAAOrganTickListeners::TickTumorHunt);
         OrganTickCallback.EVENT.register(CCAAOrganTickListeners::TickSculkInfection);
+        OrganTickCallback.EVENT.register(CCAAOrganTickListeners::TickAutophagy);
     }
 
     public static void TickNeutralWaterBuoyant(LivingEntity entity, ChestCavityInstance chestCavity){
@@ -100,5 +101,16 @@ public class CCAAOrganTickListeners {
         }
 
         AstralCavityUtil.infectOrgans(entity, cc, sculk_infection);
+    }
+
+    public static void TickAutophagy(LivingEntity entity, ChestCavityInstance cc){
+        float autophagy = MathHelper.ceil(cc.getOrganScore(CCAAOrganScores.AUTOPHAGY));
+
+        if (autophagy <= 0 || entity.age % CCAstroAdds.config.AUTOPHAGY_COOLDOWN != 0) {
+            return;
+        }
+
+        AstralCavityUtil.eatOrgans(entity, cc, autophagy, false);
+        AstralCavityUtil.drinkMilk(entity, cc);
     }
 }
