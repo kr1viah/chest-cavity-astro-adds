@@ -3,11 +3,16 @@ package net.astrospud.ccastroadds.listeners;
 import net.astrospud.ccastroadds.CCAstroAdds;
 import net.astrospud.ccastroadds.registration.CCAAOrganScores;
 import net.astrospud.ccastroadds.util.AstralCavityUtil;
+import net.astrospud.ccastroadds.util.KeyBindingToggleUtil;
+import net.minecraft.client.input.Input;
+import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec2f;
 import net.tigereye.chestcavity.chestcavities.instance.ChestCavityInstance;
+import net.tigereye.chestcavity.interfaces.ChestCavityEntity;
 import net.tigereye.chestcavity.listeners.OrganTickCallback;
 
 public class CCAAOrganTickListeners {
@@ -39,26 +44,28 @@ public class CCAAOrganTickListeners {
     }
 
     public static void TickFlight(LivingEntity entity, ChestCavityInstance chestCavity){
-        float flight = chestCavity.getOrganScore(CCAAOrganScores.FLIGHT) - chestCavity.getChestCavityType().getDefaultOrganScore(CCAAOrganScores.FLIGHT);
-        //TODO: Use PAL for flight instead of breaking compatibility
-        if (flight < 1) {
-            if(entity instanceof PlayerEntity player && !player.isCreative() && !player.isSpectator()) {
-                player.getAbilities().allowFlying = false;
-                player.getAbilities().flying = false;
-            }
-            return;
-        }
-        else if(entity instanceof PlayerEntity player) {
-            player.getAbilities().allowFlying = true;
-        }
+        if (entity instanceof PlayerEntity player && player instanceof ChestCavityEntity e && e.getChestCavityInstance().getOrganScore(CCAAOrganScores.FLIGHT) > 0) {
+            KeyBindingToggleUtil.tick();
 
-        if((entity instanceof PlayerEntity player && !player.isCreative() && player.getAbilities().flying))
-        {
-            if (player.getHungerManager().getFoodLevel() > 0) {
-                player.getHungerManager().addExhaustion(1);
+            if (player.getAbilities().flying) {
+                KeyBindingToggleUtil.isFlying = false;
             }
-            else {
-                player.damage(DamageSource.MAGIC, 1);
+            Input input = new Input();
+            if (player instanceof ClientPlayerEntity client) {
+                input = client.input;
+            }
+            if (KeyBindingToggleUtil.isFlying) {
+                Vec2f vec2f = input.getMovementInput();
+                float f = player.getMovementSpeed();
+                float h = f * vec2f.x;
+                float i = f * vec2f.y;
+                float j = MathHelper.sin(player.getYaw() * 0.017453292F);
+                float k = MathHelper.cos(player.getYaw() * 0.017453292F);
+                Vec2f vec2d = new Vec2f((h * k - i * j), (i * k + h * j));
+                double motionX = vec2d.x * 5;
+                double motionZ = vec2d.y * 5;
+                double motionY = input.jumping ? 0.4 : input.sneaking ? -0.4 : 0;
+                player.setVelocity(motionX, motionY, motionZ);
             }
         }
     }

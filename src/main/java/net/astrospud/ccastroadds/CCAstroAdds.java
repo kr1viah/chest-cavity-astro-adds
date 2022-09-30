@@ -37,6 +37,7 @@ public class CCAstroAdds implements ModInitializer {
 		ChestCavity.config = ChestCavity.config == null ? new CCConfig() : ChestCavity.config;
 
 		CCAAItems.registerModItems();
+		KeyBindings.register();
 		CCAAOrganTickListeners.register();
 		CCAAOrganOnDamageListeners.register();
 		CCAADispenserBehaviors.register();
