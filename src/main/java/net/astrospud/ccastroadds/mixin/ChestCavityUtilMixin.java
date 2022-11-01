@@ -29,7 +29,7 @@ import static net.tigereye.chestcavity.util.ChestCavityUtil.*;
 
 @Mixin(ChestCavityUtil.class)
 public abstract class ChestCavityUtilMixin {
-    @Inject(at = @At("HEAD"), method = "evaluateChestCavity")
+    /*@Inject(at = @At("HEAD"), method = "evaluateChestCavity")
     public static void ccaaevaluateChestCavity(ChestCavityInstance cc, CallbackInfo cir) {
         Map<Identifier,Float> organScores = cc.getOrganScores();
         if(cc.opened){
@@ -93,5 +93,5 @@ public abstract class ChestCavityUtilMixin {
             organData.organScores = (Map)CCTagOrgans.tagMap.get(itemTag);
             return organData;
         }
-    }
+    }*/
 }
