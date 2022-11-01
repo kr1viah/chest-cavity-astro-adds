@@ -1,6 +1,5 @@
 package net.astrospud.ccastroadds.mixin;
 
-import net.minecraft.block.ShulkerBoxBlock;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -8,9 +7,6 @@ import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.tag.TagKey;
-import net.minecraft.text.MutableText;
-import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
 import net.tigereye.chestcavity.chestcavities.ChestCavityType;
@@ -48,18 +44,18 @@ public abstract class ChestCavityUtilMixin {
                     if (nbt.contains("Items", NbtElement.LIST_TYPE)) {
                         DefaultedList<ItemStack> defaultedList = DefaultedList.ofSize(27, ItemStack.EMPTY);
                         Inventories.readNbt(nbt, defaultedList);
-                        for (ItemStack itemStack1 : defaultedList) {
-                            if (itemStack1.isEmpty()) continue;
+                        for (ItemStack shulkerItem : defaultedList) {
+                            if (shulkerItem.isEmpty()) continue;
                             OrganData data = lookupOrgan(itemStack,cc.getChestCavityType());
                             if (data != null) {
                                 data.organScores.forEach((key, value) ->
-                                        addOrganScore(key, 0.037037037f * value * Math.min(((float)itemStack1.getCount()) / itemStack1.getMaxCount(),1),organScores)
+                                        addOrganScore(key, 0.037037037f * value * Math.min(((float)shulkerItem.getCount()) / shulkerItem.getMaxCount(),1),organScores)
                                 );
                                 if(slotitem instanceof OrganOnHitListener){
-                                    cc.onHitListeners.add(new OrganOnHitContext(itemStack1,(OrganOnHitListener)slotitem));
+                                    cc.onHitListeners.add(new OrganOnHitContext(shulkerItem,(OrganOnHitListener)slotitem));
                                 }
                                 if (!data.pseudoOrgan) {
-                                    int compatibility = getCompatibilityLevel(cc,itemStack1);
+                                    int compatibility = getCompatibilityLevel(cc,shulkerItem);
                                     if(compatibility < 1){
                                         addOrganScore(CCOrganScores.INCOMPATIBILITY, 1, organScores);
                                     }
@@ -70,7 +66,8 @@ public abstract class ChestCavityUtilMixin {
                 }
             }
         }
-        organUpdate(cc);
+        //im injecting to head so i dont need to update, if i was tailing uncomment this
+        //organUpdate(cc);
     }
 
     protected static OrganData lookupOrgan(ItemStack itemStack, ChestCavityType cct) {
