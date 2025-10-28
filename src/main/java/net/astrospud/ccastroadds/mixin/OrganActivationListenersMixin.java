@@ -31,12 +31,12 @@ public abstract class OrganActivationListenersMixin{
         }
         BlockPos blockPos = entity.getBlockPos().down();
         boolean ateGrass = false;
-        if (entity.world.getBlockState(blockPos).getBlock().getBlastResistance() <= 6
-                && !entity.world.getBlockState(blockPos).hasBlockEntity()
-                && !(entity.world.getBlockState(blockPos).getBlock().canMobSpawnInside())
-                && !(entity.world.getBlockState(blockPos).getBlock() instanceof FluidBlock)){
+        if (entity.getWorld().getBlockState(blockPos).getBlock().getBlastResistance() <= 6
+                && !entity.getWorld().getBlockState(blockPos).hasBlockEntity()
+                && !(entity.getWorld().getBlockState(blockPos).getBlock().canMobSpawnInside(entity.getBlockStateAtPos()))
+                && !(entity.getWorld().getBlockState(blockPos).getBlock() instanceof FluidBlock)){
             //entity.world.syncWorldEvent(2001, blockPos, Block.getRawIdFromState(Blocks.GRASS_BLOCK.getDefaultState()));
-            entity.world.setBlockState(blockPos, Blocks.AIR.getDefaultState());
+            entity.getWorld().setBlockState(blockPos, Blocks.AIR.getDefaultState());
             ateGrass = true;
         }
         if(ateGrass){
@@ -49,7 +49,7 @@ public abstract class OrganActivationListenersMixin{
             else{
                 duration = ChestCavity.config.RUMINATION_TIME*ChestCavity.config.RUMINATION_GRASS_PER_SQUARE;
             }
-            duration += 20 * entity.world.getBlockState(blockPos).getBlock().getBlastResistance();
+            duration += 20 * entity.getWorld().getBlockState(blockPos).getBlock().getBlastResistance();
             entity.addStatusEffect(new StatusEffectInstance(CCStatusEffects.RUMINATING, duration, 0, false, false, true));
         }
     }

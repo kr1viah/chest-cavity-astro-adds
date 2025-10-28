@@ -22,7 +22,7 @@ public class ClusterExplosion extends Explosion {
     private World privateWorld = null;
 
     public ClusterExplosion(World world, @Nullable Entity entity, double px, double py, double pz, float ppower) {
-        super(world, entity, px, py, pz, ppower);
+        super(world, entity, px, py, pz, ppower, false, DestructionType.DESTROY);
         privateWorld = world;
         x=px;
         y=py;
@@ -57,7 +57,7 @@ public class ClusterExplosion extends Explosion {
                     if (aa != 0.0) {
                         double ab = (double)getExposure(vec3d, entity);
                         double ac = (1.0 - w) * ab;
-                        privateWorld.createExplosion(entity, entity.getPos().getX(), entity.getPos().getY(), entity.getPos().getZ(), (float)((int)((ac * ac + ac) / 2.0 * (double)q + 1.0)), DestructionType.BREAK);
+                        privateWorld.createExplosion(entity, entity.getPos().getX(), entity.getPos().getY(), entity.getPos().getZ(), (float)((int)((ac * ac + ac) / 2.0 * (double)q + 1.0)), World.ExplosionSourceType.BLOCK);
                     }
                 }
             }

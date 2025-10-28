@@ -22,7 +22,7 @@ public class ShriekerExplosion extends Explosion {
     private World privateWorld = null;
 
     public ShriekerExplosion(World world, @Nullable Entity entity, double px, double py, double pz, float ppower) {
-        super(world, entity, px, py, pz, ppower);
+        super(world, entity, px, py, pz, ppower, false, DestructionType.DESTROY_WITH_DECAY);
         privateWorld = world;
         x=px;
         y=py;

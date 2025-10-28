@@ -23,7 +23,7 @@ public class SafeExplosion extends Explosion {
     private World privateWorld = null;
 
     public SafeExplosion(World world, @Nullable Entity entity, double px, double py, double pz, float ppower) {
-        super(world, entity, px, py, pz, ppower);
+        super(world, entity, px, py, pz, ppower, false, DestructionType.KEEP);
         privateWorld = world;
         x=px;
         y=py;

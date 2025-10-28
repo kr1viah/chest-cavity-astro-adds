@@ -152,8 +152,8 @@ public class AstralCavityUtil {
             ItemStack organHas = cc.inventory.getStack(i);
             if (!organHas.isEmpty()) {
                 cc.inventory.setStack(i, ItemStack.EMPTY);
-                ItemEntity e = new ItemEntity(entity.world, entity.getX(), entity.getY(), entity.getZ(), organHas);
-                entity.world.spawnEntity(e);
+                ItemEntity e = new ItemEntity(entity.getWorld(), entity.getX(), entity.getY(), entity.getZ(), organHas);
+                entity.getWorld().spawnEntity(e);
                 count--;
             }
         }

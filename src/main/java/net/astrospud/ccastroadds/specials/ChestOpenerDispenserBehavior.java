@@ -6,25 +6,20 @@ import net.minecraft.block.dispenser.ItemDispenserBehavior;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.predicate.entity.EntityPredicates;
-import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPointer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.tigereye.chestcavity.chestcavities.ChestCavityInventory;
 import net.tigereye.chestcavity.chestcavities.instance.ChestCavityInstance;
-import net.tigereye.chestcavity.compat.requiem.CCRequiem;
 import net.tigereye.chestcavity.interfaces.ChestCavityEntity;
 import net.tigereye.chestcavity.items.ChestOpener;
-import net.tigereye.chestcavity.registration.CCDamageSource;
 import net.tigereye.chestcavity.registration.CCOrganScores;
-import net.tigereye.chestcavity.ui.ChestCavityScreenHandler;
 import net.tigereye.chestcavity.util.ChestCavityUtil;
 
 import java.util.List;
@@ -61,7 +56,7 @@ public class ChestOpenerDispenserBehavior extends ItemDispenserBehavior {
             ChestCavityEntity chestCavityEntity = (ChestCavityEntity)optional.get();
             ChestCavityInstance cc = chestCavityEntity.getChestCavityInstance();
             if (!cc.getChestCavityType().isOpenable(cc)) {
-                if (target.world.isClient) {
+                if (target.getWorld().isClient) {
                     if (!target.getEquippedStack(EquipmentSlot.CHEST).isEmpty()) {
                         //target.sendMessage(Text.literal("Target's chest is obstructed"), true);
                         target.playSound(SoundEvents.BLOCK_CHAIN_HIT, 1F, 0.75F);
@@ -74,11 +69,11 @@ public class ChestOpenerDispenserBehavior extends ItemDispenserBehavior {
                 return false;
             } else {
                 if (cc.getOrganScore(CCOrganScores.EASE_OF_ACCESS) > 0.0F) {
-                    if (target.world.isClient) {
+                    if (target.getWorld().isClient) {
                         target.playSound(SoundEvents.BLOCK_CHEST_OPEN, 1F, 0.75F);
                     }
                 } else {
-                    target.damage(DamageSource.GENERIC, 4.0F);
+                    target.damage(new DamageSource(target.getWorld().getRegistryManager().get(RegistryKeys.DAMAGE_TYPE).entryOf(DamageTypes.GENERIC)), 4.0F);
                 }
 
                 if (target.isAlive()) {
