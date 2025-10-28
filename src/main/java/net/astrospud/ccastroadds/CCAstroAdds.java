@@ -17,6 +17,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.tigereye.chestcavity.ChestCavity;
 import net.tigereye.chestcavity.config.CCConfig;
@@ -36,7 +37,10 @@ public class CCAstroAdds implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-        Registry.register(Registries.ITEM_GROUP, ORGAN_ITEM_GROUP, FabricItemGroup.builder().build());
+        Registry.register(Registries.ITEM_GROUP, ORGAN_ITEM_GROUP, FabricItemGroup.builder()
+                .displayName(Text.translatable("itemGroup.ccastroadds.organs"))
+                .icon(CCAAItems.STEEL_DISTRIBUTOR::getDefaultStack)
+                .build());
 
 		AutoConfig.register(CCAAConfig.class, GsonConfigSerializer::new);
 		config = AutoConfig.getConfigHolder(CCAAConfig.class).getConfig();
