@@ -11,13 +11,11 @@ import net.astrospud.ccastroadds.registration.CCAADispenserBehaviors;
 import net.astrospud.ccastroadds.registration.CCAAStatusEffects;
 import net.astrospud.ccastroadds.registration.CCAAItems;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.tigereye.chestcavity.ChestCavity;
 import net.tigereye.chestcavity.config.CCConfig;
@@ -37,10 +35,7 @@ public class CCAstroAdds implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-        Registry.register(Registries.ITEM_GROUP, ORGAN_ITEM_GROUP, FabricItemGroup.builder()
-                .displayName(Text.translatable("itemGroup.ccastroadds.organs"))
-                .icon(CCAAItems.STEEL_DISTRIBUTOR::getDefaultStack)
-                .build());
+        Registry.register(Registries.ITEM_GROUP, ORGAN_ITEM_GROUP, CCAAItems.ORGAN_ITEM_GROUP);
 
 		AutoConfig.register(CCAAConfig.class, GsonConfigSerializer::new);
 		config = AutoConfig.getConfigHolder(CCAAConfig.class).getConfig();

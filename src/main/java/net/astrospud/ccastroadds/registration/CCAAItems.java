@@ -4,12 +4,13 @@ import net.astrospud.ccastroadds.CCAstroAdds;
 import net.astrospud.ccastroadds.specials.DoniItem;
 import net.astrospud.ccastroadds.specials.GlintItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import net.tigereye.chestcavity.ChestCavity;
 
 public class CCAAItems {
 
@@ -139,6 +140,77 @@ public class CCAAItems {
     //I have zero idea how to make tumor work, so I've removed its recipe and all child recipes
     public static final Item DRACONIS_FUNDAMENTUM = registerItem("draconis_fundamentum",
             new GlintItem(new FabricItemSettings().maxCount(1)));
+
+    public static final ItemGroup ORGAN_ITEM_GROUP = FabricItemGroup.builder()
+            .displayName(Text.translatable("itemGroup.ccastroadds.organs"))
+            .icon(CCAAItems.STEEL_DISTRIBUTOR::getDefaultStack)
+            .entries((context, entries) -> {
+                entries.add(ABYSSAL_HEART);
+                entries.add(ABYSSAL_LUNG);
+                entries.add(ABYSSAL_MUSCLE);
+
+                entries.add(ACTUATOR);
+                entries.add(COPPER_WIRING);
+                entries.add(COPPER_FRAME);
+                entries.add(PHANTOM_PUMP);
+                entries.add(FILTER_PUMP);
+                entries.add(BLOOD_PUMP);
+
+                entries.add(JUMP_SHAFT);
+                entries.add(GOLDEN_WIRING);
+                entries.add(CLOCKWORK_CORE);
+                entries.add(GEM_HOLSTER);
+                entries.add(ACID_MIXER);
+                entries.add(ELECTROLYZER);
+
+                entries.add(STEEL_ACTUATOR);
+                entries.add(STEEL_CABLE);
+                entries.add(STEEL_FRAME);
+                entries.add(STEEL_DETOXIFIER);
+                entries.add(STEEL_DISTRIBUTOR);
+                entries.add(BOILER);
+                entries.add(NUTRIENT_MIXER);
+
+                entries.add(CRYSTAL_ROD);
+                entries.add(CRYSTAL_CORE);
+                entries.add(SHARDED_RIB);
+
+                entries.add(CIRCUITRY);
+                entries.add(SUPER_CAPACITOR);
+
+                entries.add(REJUVENATED_RIB);
+                entries.add(REJUVENATED_SPINE);
+                entries.add(REANIMATED_HEART);
+                entries.add(REANIMATED_KIDNEY);
+
+                entries.add(CAPTURED_SOUL);
+                entries.add(CREATIVE_SOUL);
+                entries.add(IRON_LUNG);
+                entries.add(HEART_OF_GOLD);
+                entries.add(HASTY_MUSCLE);
+                entries.add(SWIM_BLADDER);
+                entries.add(RESONANT_CORE);
+                entries.add(ADRENAL_CATALYST);
+                entries.add(ADRENAL_SHRIEKER);
+                entries.add(STEEL_STOMACH);
+                entries.add(STEEL_RUMEN);
+
+                entries.add(BENIGN_TUMOR);
+                entries.add(AUTOPHAGY_TUMOR);
+                entries.add(SCULK_TUMOR);
+
+                entries.add(AUTOPHAGY_STOMACH);
+
+                entries.add(EMPTY_CANISTER);
+                entries.add(STEM_CELL_CANISTER);
+                entries.add(NANOBOT_CANISTER);
+                entries.add(SCULK_CANISTER);
+
+                entries.add(CLUSTER_BOMB);
+                entries.add(DRACONIS_FUNDAMENTUM);
+
+            })
+            .build();
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(CCAstroAdds.MOD_ID, name), item);
